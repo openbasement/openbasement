@@ -1,0 +1,109 @@
+/* Base Application Styles */
+
+@import 'Palette.scss';
+@import 'Fonts.scss';
+
+html {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  color: $std-text-color;
+  background: $component-color-4;
+  font-family: $standard-font;
+  margin: 0;
+  padding: 0 15px;
+}
+
+a {
+  color: $highlight-color-4;
+}
+
+.index {
+  > * {
+    background: $std-background-color;
+    margin: 0 auto;
+  }
+}
+
+$header-indents: 10px;
+
+header {
+  font-family: $elegant-font;
+  padding: $header-indents 0;
+
+  h1 {
+    margin: 0;
+    margin-left: $header-indents*2;
+  }
+
+  h2 {
+    color: $text-color-4;
+    margin: 0;
+    margin-left: $header-indents*4;
+  }
+}
+
+$component-indent: 15px;
+
+$nav-height: 30px;
+
+nav#navigation {
+  height: $nav-height;
+  margin-bottom: $component-indent;
+
+  ul {
+    margin: 0 auto;
+    padding: 0;
+    list-style: none;
+
+    li {
+      display: inline-block;
+
+      a {
+        border-right: 1px $component-color-2 solid;
+        display: inline-block;
+        height: $nav-height;
+        line-height: 1.8;
+        position: relative;
+        padding: 0 $nav-height/2;
+        text-decoration: none;
+      }
+    }
+  }
+}
+
+aside#side-notes {
+  float: right;
+  font-family: $casual-font;
+  font-size: 15pt;
+  width: 200px;
+
+  h3 {
+    color: $text-color-4;
+    text-align: center;
+  }
+}
+
+#journal-wrapper {
+  background: none;
+  overflow: hidden;
+  padding-right: $component-indent;
+  width: auto;
+}
+
+section#journal {
+  background-color: $std-background-color;
+  padding: 30px;
+  height: 100%;
+}
+
+footer {
+  border-top: $component-indent solid $component-color-4;
+  clear: both;
+  font-family: $elegant-font;
+  letter-spacing: 1pt;
+  padding: 10px 0;
+  text-align: center;
+}
