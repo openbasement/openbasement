@@ -4,7 +4,8 @@ class EventsComponent extends React.Component {
   render() {
     return (
       <section id="events">
-      	<h3>Events</h3>
+      	<h3><i className="fa fa-calendar"/> Events</h3>
+      	<div>no events</div>
       </section>
     );
   }

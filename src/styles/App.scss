@@ -1,7 +1,25 @@
 /* Base Application Styles */
 
-@import 'Palette.scss';
+@import 'font-awesome.scss';
 @import 'Fonts.scss';
+@import 'Palette.scss';
+
+@mixin shadow-container($length, $radius) {
+  -webkit-box-shadow: 0px $length $radius 0px rgba(154,140,152,0.5);
+  -moz-box-shadow: 0px $length $radius 0px rgba(154,140,152,0.5);
+  box-shadow: 0px $length $radius 0px rgba(154,140,152,0.5);
+}
+
+@mixin round-corners($radius1, $radius2) {
+  -webkit-border-radius: $radius2 $radius1 $radius2 $radius1;
+  -moz-border-radius: $radius2 $radius1 $radius2 $radius1;
+  border-radius: $radius2 $radius1 $radius2 $radius1;
+}
+
+@mixin journal-text() {
+  color: $std-text-color;
+  font-size: 8pt;
+}
 
 html {
   margin: 0;
@@ -10,7 +28,7 @@ html {
 
 body {
   color: $std-text-color;
-  background: $component-color-4;
+  background: $component-color-0;
   font-family: $standard-font;
   margin: 0;
   padding: 0 15px;
@@ -20,38 +38,67 @@ a {
   color: $highlight-color-4;
 }
 
+$component-indent: 15px;
+$page-width: 700px;
+$min-page-width: 500px;
+
 .index {
+  max-width: $page-width;
+  min-width: $min-page-width - $component-indent*2;
+  margin: 0 auto;
+
   > * {
-    background: $std-background-color;
     margin: 0 auto;
   }
 }
 
 $header-indents: 10px;
+$header-height: 35px;
 
 header {
+  @include shadow-container(3px, 5px);
+  background-color: $component-color-3 !important;
   font-family: $elegant-font;
+  height: $header-height;
   padding: $header-indents 0;
+  position: absolute;
+  text-shadow: 1px 1px $component-color-4;
+  left: 0;
+  width: 100%;
+  min-width: $min-page-width;
 
-  h1 {
-    margin: 0;
-    margin-left: $header-indents*2;
+  .wrapper {
+    margin: 0 auto;
+    max-width: $page-width;
+
+    h1 {
+      color: $text-color-4;
+      font-size: 14pt;
+      margin: 0;
+      margin-left: $header-indents*2;
+    }
+
+    h2 {
+      color: $text-color-3;
+      font-size: 10pt;
+      margin: 0;
+      margin-left: $header-indents*4;
+    }
   }
 
-  h2 {
-    color: $text-color-4;
-    margin: 0;
-    margin-left: $header-indents*4;
-  }
 }
 
-$component-indent: 15px;
-
-$nav-height: 30px;
+$nav-height: $header-height;
 
 nav#navigation {
+  font-weight: bold;
   height: $nav-height;
-  margin-bottom: $component-indent;
+  padding-top: $component-indent;
+  position: absolute;
+  text-shadow: 1px 1px $component-color-4;
+  left: 50%;
+  width: 50%;
+  min-width: $min-page-width/2;
 
   ul {
     margin: 0 auto;
@@ -62,10 +109,10 @@ nav#navigation {
       display: inline-block;
 
       a {
-        border-right: 1px $component-color-2 solid;
+        color: $text-color-4;
         display: inline-block;
         height: $nav-height;
-        line-height: 1.8;
+        line-height: 1.9;
         position: relative;
         padding: 0 $nav-height/2;
         text-decoration: none;
@@ -74,36 +121,106 @@ nav#navigation {
   }
 }
 
+#content-container {
+  padding: $component-indent 0;
+  padding-top: $header-height + $component-indent*2;
+}
+
 aside#side-notes {
+  @include round-corners($component-indent/2, 0);
+  background: $std-background-color;
   float: right;
-  font-family: $casual-font;
   font-size: 15pt;
+  margin-bottom: $component-indent;
   width: 200px;
 
-  h3 {
-    color: $text-color-4;
-    text-align: center;
+  > * {
+    border-top: 1px solid $component-color-1;
+
+    > * {
+      font-size: 8pt;
+      color: $text-color-1;
+      margin: $component-indent/2 $component-indent;
+    }
+
+    > *:last-child {
+      margin-bottom: $component-indent;
+    }
+
+    > h3 {
+      border-bottom: 1px dashed $component-color-1;
+      color: $text-color-2;
+      font-family: $casual-font;
+      font-size: 10pt;
+      margin: $component-indent auto;
+      text-align: center;
+      text-shadow: 2px 2px $component-color-0;
+      width: 50%;
+    }
+  }
+
+  > *:first-child {
+    border: 0;
   }
 }
 
 #journal-wrapper {
-  background: none;
   overflow: hidden;
   padding-right: $component-indent;
   width: auto;
+
+  #journal-input {
+    @include shadow-container(1px, 2px);
+    @include round-corners($component-indent/2, $component-indent/5);
+    background-color: $text-color-4;
+    margin-bottom: $component-indent;
+    padding: $component-indent;
+
+    ul {
+      margin: 0;
+      margin-bottom: $component-indent/2;
+      padding: 0;
+
+      li {
+        @include round-corners(2px, 2px);
+        background-color: $std-background-color;
+        border: 1px solid $text-color-3;
+        display: inline-block;
+        margin-right: $component-indent/2;
+        font-size: 7pt;
+        padding: $component-indent/3;
+      }
+    }
+
+    textarea {
+      @include journal-text();
+      border: 1px solid $text-color-3;
+      display: block;
+      width: 100%;
+    }
+  }
 }
 
-section#journal {
+section#journal > * {
+  @include shadow-container(1px, 2px);
+  @include round-corners($component-indent/2, $component-indent/5);
+  @include journal-text();
   background-color: $std-background-color;
-  padding: 30px;
+  margin-bottom: $component-indent;
+  padding: $component-indent;
   height: 100%;
 }
 
 footer {
-  border-top: $component-indent solid $component-color-4;
+  @include shadow-container(2px, 2px);
+  @include round-corners($component-indent/2, 0);
+  background: $component-color-2;
+  color: $text-color-4;
   clear: both;
   font-family: $elegant-font;
+  font-size: 8pt;
+  font-weight: bold;
   letter-spacing: 1pt;
-  padding: 10px 0;
+  padding: $component-indent/3 0;
   text-align: center;
 }

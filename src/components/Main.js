@@ -12,13 +12,17 @@ class AppComponent extends React.Component {
     return (
       <div className="index">
         <header>
-          <h1>OpenBasement</h1>
-          <h2>anti-social no-network</h2>
+          <div className="wrapper">
+            <h1>OpenBasement</h1>
+            <h2>anti-social no-network</h2>
+          </div>
         </header>
         <Navigation />
-        <SideNotes />
-        <Journal />
-        <footer>&not;&copy;2016 OpenBasement and (imagined) friends</footer>
+        <div id="content-container">
+          <SideNotes />
+          <Journal />
+        </div>
+        <footer className="component">&not;&copy;2016 OpenBasement team and (imagined) friends</footer>
       </div>
     );
   }
