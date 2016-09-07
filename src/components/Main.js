@@ -2,6 +2,7 @@ import 'normalize.css/normalize.css';
 import 'styles/App.scss';
 
 import React from 'react';
+import T from 'i18n-react';
 
 import Navigation from 'components/Navigation';
 import SideNotes from 'components/SideNotes';
@@ -13,8 +14,8 @@ class AppComponent extends React.Component {
       <div className="index">
         <header>
           <div className="wrapper">
-            <h1>OpenBasement</h1>
-            <h2>anti-social no-network</h2>
+            <T.text tag="h1" text="title"/>
+            <T.text tag="h2" text="subtitle"/>
           </div>
         </header>
         <Navigation />
@@ -22,7 +23,7 @@ class AppComponent extends React.Component {
           <SideNotes />
           <Journal />
         </div>
-        <footer className="component">&not;&copy;2016 OpenBasement team and (imagined) friends</footer>
+        <T.text tag="footer" text="footer" />
       </div>
     );
   }

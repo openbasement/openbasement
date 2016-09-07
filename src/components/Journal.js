@@ -8,9 +8,6 @@ class JournalComponent extends React.Component {
       <div id="journal-wrapper">
         <JournalInput />
         <section id="journal">
-          <article>EMPTY</article>
-          <article>EMPTY</article>
-          <article>EMPTY</article>
         </section>
       </div>
     );
