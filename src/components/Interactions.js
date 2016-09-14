@@ -1,3 +1,4 @@
+import { connect } from 'react-redux';
 import React from 'react';
 import T from 'i18n-react';
 
@@ -13,6 +14,17 @@ class InteractionsComponent extends React.Component {
 }
 
 InteractionsComponent.defaultProps = {
+  actions: {}
 };
 
-export default InteractionsComponent;
+function mapStateToProps() {
+  return {};
+}
+
+function mapDispatchToProps() {
+  return {
+    actions: {}
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(InteractionsComponent);

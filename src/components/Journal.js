@@ -1,3 +1,4 @@
+import { connect } from 'react-redux';
 import React from 'react';
 
 import JournalInput from 'components/JournalInput';
@@ -15,6 +16,17 @@ class JournalComponent extends React.Component {
 }
 
 JournalComponent.defaultProps = {
+  actions: {}
 };
 
-export default JournalComponent;
+function mapStateToProps() {
+  return {};
+}
+
+function mapDispatchToProps() {
+  return {
+    actions: {}
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(JournalComponent);

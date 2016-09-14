@@ -1,3 +1,4 @@
+import { connect } from 'react-redux';
 import React from 'react';
 import T from 'i18n-react';
 
@@ -13,6 +14,17 @@ class NotificationsComponent extends React.Component {
 }
 
 NotificationsComponent.defaultProps = {
+  actions: {}
 };
 
-export default NotificationsComponent;
+function mapStateToProps() {
+  return {};
+}
+
+function mapDispatchToProps() {
+  return {
+    actions: {}
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(NotificationsComponent);

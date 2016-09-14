@@ -1,3 +1,4 @@
+import { connect } from 'react-redux';
 import React from 'react';
 
 import Notifications from 'components/Notifications'
@@ -17,6 +18,17 @@ class SideNotesComponent extends React.Component {
 }
 
 SideNotesComponent.defaultProps = {
+  actions: {}
 };
 
-export default SideNotesComponent;
+function mapStateToProps() {
+  return {};
+}
+
+function mapDispatchToProps() {
+  return {
+    actions: {}
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(SideNotesComponent);

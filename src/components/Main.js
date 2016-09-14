@@ -1,6 +1,7 @@
 import 'normalize.css/normalize.css';
 import 'styles/App.scss';
 
+import { connect } from 'react-redux';
 import React from 'react';
 import T from 'i18n-react';
 
@@ -30,6 +31,17 @@ class AppComponent extends React.Component {
 }
 
 AppComponent.defaultProps = {
+  actions: {}
 };
 
-export default AppComponent;
+function mapStateToProps() {
+  return {};
+}
+
+function mapDispatchToProps() {
+  return {
+    actions: {}
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(AppComponent);

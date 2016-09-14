@@ -1,3 +1,4 @@
+import { connect } from 'react-redux';
 import React from 'react';
 import T from 'i18n-react';
 
@@ -16,6 +17,17 @@ class NavigationComponent extends React.Component {
 }
 
 NavigationComponent.defaultProps = {
+  actions: {}
 };
 
-export default NavigationComponent;
+function mapStateToProps() {
+  return {};
+}
+
+function mapDispatchToProps() {
+  return {
+    actions: {}
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(NavigationComponent);
