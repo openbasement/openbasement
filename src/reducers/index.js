@@ -9,5 +9,5 @@
 import { combineReducers } from 'redux';
 import addEntry from '../reducers/addEntry';
 /* Populated by react-webpack-redux:reducer */
-const reducers = { addEntry: addEntry };
+const reducers = { journal: addEntry };
 module.exports = combineReducers(reducers);
