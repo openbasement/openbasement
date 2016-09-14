@@ -38,9 +38,9 @@ a {
   color: $highlight-color-4;
 }
 
-$component-indent: 15px;
-$page-width: 700px;
-$min-page-width: 500px;
+$component-indent: 20px;
+$page-width: 950px;
+$min-page-width: 700px;
 
 .index {
   max-width: $page-width;
@@ -92,8 +92,9 @@ $nav-height: $header-height;
 
 nav#navigation {
   font-weight: bold;
+  font-size: 11pt;
   height: $nav-height;
-  padding-top: $component-indent;
+  padding-top: ($nav-height - 11pt)/2;
   position: absolute;
   text-shadow: 1px 1px $component-color-4;
   left: 50%;
