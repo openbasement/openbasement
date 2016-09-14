@@ -7,7 +7,9 @@ import configureStore from './stores';
 import locale from './i18n/locales/en-US';
 import App from './containers/App';
 
-const store = configureStore();
+const store = configureStore({
+	journal: []
+});
 
 T.setTexts(locale);
 

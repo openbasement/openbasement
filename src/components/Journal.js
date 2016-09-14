@@ -16,11 +16,14 @@ class JournalComponent extends React.Component {
 }
 
 JournalComponent.defaultProps = {
-  actions: {}
+  actions: {},
+  journal: []
 };
 
-function mapStateToProps() {
-  return {};
+function mapStateToProps(state) {
+  return {
+    journal: state.journal
+  };
 }
 
 function mapDispatchToProps() {
