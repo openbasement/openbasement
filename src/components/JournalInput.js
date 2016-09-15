@@ -17,7 +17,7 @@ const menuEmoijiOptions = {
 };
 
 class JournalInputComponent extends React.Component {
-  componentDidUpdate(prevProps, prevStata) {
+  componentDidUpdate(prevProps) {
     if (prevProps.journalSize < this.props.journalSize && this._input) {
       this._input.value = '';
     }

@@ -6,7 +6,7 @@
   "main": "",
   "scripts": {
     "clean": "rimraf dist/*",
-    "copy": "copyfiles -f ./src/index.html ./src/favicon.ico ./src/i18n ./dist",
+    "copy": "copyfiles -f ./src/index.html ./src/favicon.ico ./dist && copyfiles -u 1 ./src/fonts/* ./src/i18n/locales/* ./src/images/* ./dist",
     "dist": "npm run copy & webpack --env=dist",
     "lint": "eslint ./src",
     "posttest": "npm run lint",
@@ -19,7 +19,7 @@
     "test": "karma start",
     "test:watch": "karma start --autoWatch=true --singleRun=false"
   },
-  "repository": "",
+  "repository": "https://github.com/openbasement/openbasement",
   "keywords": [],
   "author": "Mateusz Kubuszok",
   "devDependencies": {
