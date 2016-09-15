@@ -32,9 +32,8 @@ const makeNote = (action, id) => {
 }
 
 const addEntry = (journal = [], action) => {
-  const sortById = (a, b) => a.id < b.id;
-
-  const appendEntryToJournal = (entry) => [ ...journal, entry ].sort(sortById);
+  // assert sorted ascending
+  const appendEntryToJournal = (entry) => [ ...journal, entry ];
 
   switch (action.type) {
   case ADD_MEETING:

@@ -14,7 +14,7 @@ class MeetingComponent extends React.Component {
     const { id, content, time } = this.props.meeting;
     return (
       <article className="meeting" id={'meeting-'+id}>
-        <div className="date"><i className="fa fa-calendar-check-o" /> {this.showDate(time)}</div>
+        <div className="date">{id} <i className="fa fa-calendar-check-o" /> {this.showDate(time)}</div>
         <div>{emojify(content, emojioneOptions)}</div>
       </article>
     );
@@ -33,6 +33,7 @@ MeetingComponent.defaultProps = {
 function mapStateToProps(state, props) {
   const journal = state.journal;
   const id = props.meeting.id;
+  // assert journal[id].id === id
   return {
     meeting: journal[id]
   };

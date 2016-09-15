@@ -19,12 +19,14 @@ class JournalComponent extends React.Component {
   }
 
   render() {
+    // assert sorted descending
     const journal = this.props.journal;
+    const entries = journal.map(this.journalEntryToArticle);
     return (
       <div id="journal-wrapper">
         <JournalInput />
         <section id="journal">
-          {journal.map(this.journalEntryToArticle).reverse()}
+          {entries}
         </section>
       </div>
     );
@@ -37,9 +39,9 @@ JournalComponent.defaultProps = {
 };
 
 function mapStateToProps(state) {
-  const sortById = (a, b) => a.id < b.id;
+  const journal = [ ...state.journal ].reverse();
   return {
-    journal: [ ...state.journal ].sort(sortById)
+    journal: journal
   };
 }
 

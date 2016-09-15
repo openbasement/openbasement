@@ -19,17 +19,23 @@ const menuEmoijiOptions = {
 class JournalInputComponent extends React.Component {
   render() {
     const { onAddMeeting, onAddMood, onAddNote } = this.props.actions;
+
     const getContent = () => this._input ? this._input.value : '';
+    const addMeeting = () => onAddMeeting(getContent());
+    const addMood = (mood) => () => onAddMood(getContent(), mood);
+    const addNote = () => onAddNote(getContent());
+
+    const makeEmojiButton = (name) => emojify(name, menuEmoijiOptions);
 
     return (
       <div id="journal-input">
         <textarea ref={(ta) => this._input = ta} />
         <ul>
-          <li onClick={() => onAddNote(getContent())}><i className="fa fa-sticky-note-o" /> {T.translate('note')}</li>
-          <li onClick={() => onAddMeeting(getContent())}><i className="fa fa-calendar-check-o" /> {T.translate('meeting')}</li>
-          <li onClick={() => onAddMood(getContent(), ':smile:')}>{emojify(':smile:', menuEmoijiOptions)}</li>
-          <li onClick={() => onAddMood(getContent(), ':disappointed:')}>{emojify(':disappointed:', menuEmoijiOptions)}</li>
-          <li onClick={() => onAddMood(getContent(), ':angry:')}>{emojify(':angry:', menuEmoijiOptions)}</li>
+          <li onClick={addNote}><i className="fa fa-sticky-note-o" /> {T.translate('note')}</li>
+          <li onClick={addMeeting}><i className="fa fa-calendar-check-o" /> {T.translate('meeting')}</li>
+          <li onClick={addMood(':smile:')}>{makeEmojiButton(':smile:')}</li>
+          <li onClick={addMood(':disappointed:')}>{makeEmojiButton(':disappointed:')}</li>
+          <li onClick={addMood(':angry:')}>{makeEmojiButton(':angry:')}</li>
         </ul>
       </div>
     );

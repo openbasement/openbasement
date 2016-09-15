@@ -14,7 +14,7 @@ class NoteComponent extends React.Component {
     const { id, content, time } = this.props.note;
     return (
       <article className="note" id={'note-'+id}>
-        <div className="date"><i className="fa fa-sticky-note-o" /> {this.showDate(time)}</div>
+        <div className="date">{id} <i className="fa fa-sticky-note-o" /> {this.showDate(time)}</div>
         <div>{emojify(content, emojioneOptions)}</div>
       </article>
     );
@@ -33,6 +33,7 @@ NoteComponent.defaultProps = {
 function mapStateToProps(state, props) {
   const journal = state.journal;
   const id = props.note.id;
+  // assert journal[id].id === id
   return {
     note: journal[id]
   };
