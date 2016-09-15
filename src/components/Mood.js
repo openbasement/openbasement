@@ -24,7 +24,7 @@ class MoodComponent extends React.Component {
     const { id, content, mood, time } = this.props.mood;
     return (
       <article className="mood" id={'mood-'+id}>
-        <div className="date">{id} {emojify(mood, entryEmoijiOptions)} {this.showDate(time)}</div>
+        <div className="date">{emojify(mood, entryEmoijiOptions)} {this.showDate(time)}</div>
         <div>{emojify(content, emojioneOptions)}</div>
       </article>
     );

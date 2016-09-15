@@ -14,7 +14,7 @@ class NoteComponent extends React.Component {
     const { id, content, time } = this.props.note;
     return (
       <article className="note" id={'note-'+id}>
-        <div className="date">{id} <i className="fa fa-sticky-note-o" /> {this.showDate(time)}</div>
+        <div className="date"><i className="fa fa-sticky-note-o" /> {this.showDate(time)}</div>
         <div>{emojify(content, emojioneOptions)}</div>
       </article>
     );
