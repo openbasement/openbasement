@@ -15,7 +15,7 @@ module.exports = {
   'no-events': 'no events',
   'no-interactions': 'no interactions',
 
-  'note': 'note',
-  'my-mood': 'my mood',
-  'ive-met': 'I\'ve met'
+  'meeting': 'meeting',
+  'mood': 'mood',
+  'note': 'note'
 }

@@ -1,5 +1,8 @@
 import { connect } from 'react-redux';
+import { emojify } from 'react-emojione';
 import React from 'react';
+
+import emojioneOptions from '../images/emojioneOptions';
 
 class NoteComponent extends React.Component {
   showDate(time) {
@@ -11,8 +14,8 @@ class NoteComponent extends React.Component {
     const { id, content, time } = this.props.note;
     return (
       <article className="note" id={'note-'+id}>
-        <div className="date fa fa-sticky-note-o"> {this.showDate(time)}</div>
-        <div>{content}</div>
+        <div className="date"><i className="fa fa-sticky-note-o" /> {this.showDate(time)}</div>
+        <div>{emojify(content, emojioneOptions)}</div>
       </article>
     );
   }

@@ -1,5 +1,18 @@
 import { connect } from 'react-redux';
+import { emojify } from 'react-emojione';
 import React from 'react';
+
+import emojioneOptions from '../images/emojioneOptions';
+
+const entryEmoijiOptions = {
+  ...emojioneOptions,
+  styles: {
+    ...emojioneOptions.styles,
+    height: '8.5pt',
+    width: '8.5pt',
+    margin: '0'
+  }
+};
 
 class MoodComponent extends React.Component {
   showDate(time) {
@@ -11,8 +24,8 @@ class MoodComponent extends React.Component {
     const { id, content, mood, time } = this.props.mood;
     return (
       <article className="mood" id={'mood-'+id}>
-        <div className="date fa fa-smile-o"> {this.showDate(time)}</div>
-        <div>{content}</div>
+        <div className="date">{emojify(mood, entryEmoijiOptions)} {this.showDate(time)}</div>
+        <div>{emojify(content, emojioneOptions)}</div>
       </article>
     );
   }

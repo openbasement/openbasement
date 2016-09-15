@@ -1,5 +1,8 @@
 import { connect } from 'react-redux';
+import { emojify } from 'react-emojione';
 import React from 'react';
+
+import emojioneOptions from '../images/emojioneOptions';
 
 class MeetingComponent extends React.Component {
   showDate(time) {
@@ -11,8 +14,8 @@ class MeetingComponent extends React.Component {
     const { id, content, time } = this.props.meeting;
     return (
       <article className="meeting" id={'meeting-'+id}>
-        <div className="date fa fa-calendar-check-o"> {this.showDate(time)}</div>
-        <div>{content}</div>
+        <div className="date"><i className="fa fa-calendar-check-o" /> {this.showDate(time)}</div>
+        <div>{emojify(content, emojioneOptions)}</div>
       </article>
     );
   }
