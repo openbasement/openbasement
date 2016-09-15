@@ -17,6 +17,12 @@ const menuEmoijiOptions = {
 };
 
 class JournalInputComponent extends React.Component {
+  componentDidUpdate(prevProps, prevStata) {
+    if (prevProps.journalSize < this.props.journalSize && this._input) {
+      this._input.value = '';
+    }
+  }
+
   render() {
     const { onAddMeeting, onAddMood, onAddNote } = this.props.actions;
 
@@ -47,11 +53,14 @@ JournalInputComponent.defaultProps = {
     onAddMeetings: () => undefined,
     onAddMood: () => undefined,
     onAddNote: () => undefined
-  }
+  },
+  journalSize: 0
 };
 
-function mapStateToProps() {
-  return {};
+function mapStateToProps(state) {
+  return {
+    journalSize: state.journal.length
+  };
 }
 
 function mapDispatchToProps(dispatch) {
