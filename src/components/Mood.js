@@ -1,27 +1,28 @@
 import { connect } from 'react-redux';
 import React from 'react';
 
-class NoteComponent extends React.Component {
+class MoodComponent extends React.Component {
   showDate(time) {
     const date = new Date(time);
     return date.toLocaleString();
   }
 
   render() {
-    const { id, content, time } = this.props.note;
+    const { id, content, mood, time } = this.props.mood;
     return (
-      <article className="note" id={'note-'+id}>
-        <div className="date fa fa-sticky-note-o"> {this.showDate(time)}</div>
+      <article className="mood" id={'mood-'+id}>
+        <div className="date fa fa-smile-o"> {this.showDate(time)}</div>
         <div>{content}</div>
       </article>
     );
   }
 }
 
-NoteComponent.defaultProps = {
+MoodComponent.defaultProps = {
   actions: {},
-  note: {
+  mood: {
     content: '',
+    mood: '',
     id: 0,
     time: ''
   }
@@ -29,9 +30,9 @@ NoteComponent.defaultProps = {
 
 function mapStateToProps(state, props) {
   const journal = state.journal;
-  const id = props.note.id;
+  const id = props.mood.id;
   return {
-    note: journal[id]
+    mood: journal[id]
   };
 }
 
@@ -41,4 +42,4 @@ function mapDispatchToProps() {
   };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(NoteComponent);
+export default connect(mapStateToProps, mapDispatchToProps)(MoodComponent);

@@ -1,7 +1,7 @@
-import { ADD_MEETING, SELECT_MOOD, ADD_NOTE } from 'actions/const';
+import { ADD_MEETING, ADD_MOOD, ADD_NOTE } from 'actions/const';
 
 const makeMeeting = (action, id) => {
-	const { content, time } = action.payload;
+  const { content, time } = action.payload;
   return {
     type: 'meeting',
     id: id,
@@ -32,14 +32,14 @@ const makeNote = (action, id) => {
 }
 
 const addEntry = (journal = [], action) => {
-  function appendEntryToJournal(entry) {
-    return [ ...journal, entry ];
-  }
+  const sortById = (a, b) => a.id < b.id;
+
+  const appendEntryToJournal = (entry) => [ ...journal, entry ].sort(sortById);
 
   switch (action.type) {
   case ADD_MEETING:
     return appendEntryToJournal(makeMeeting(action, journal.length));
-  case SELECT_MOOD:
+  case ADD_MOOD:
     return appendEntryToJournal(makeMood(action, journal.length));
   case ADD_NOTE:
     return appendEntryToJournal(makeNote(action, journal.length));

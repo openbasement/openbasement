@@ -1,26 +1,26 @@
 import { connect } from 'react-redux';
 import React from 'react';
 
-class NoteComponent extends React.Component {
+class MeetingComponent extends React.Component {
   showDate(time) {
     const date = new Date(time);
     return date.toLocaleString();
   }
 
   render() {
-    const { id, content, time } = this.props.note;
+    const { id, content, time } = this.props.meeting;
     return (
-      <article className="note" id={'note-'+id}>
-        <div className="date fa fa-sticky-note-o"> {this.showDate(time)}</div>
+      <article className="meeting" id={'meeting-'+id}>
+        <div className="date fa fa-calendar-check-o"> {this.showDate(time)}</div>
         <div>{content}</div>
       </article>
     );
   }
 }
 
-NoteComponent.defaultProps = {
+MeetingComponent.defaultProps = {
   actions: {},
-  note: {
+  meeting: {
     content: '',
     id: 0,
     time: ''
@@ -29,9 +29,9 @@ NoteComponent.defaultProps = {
 
 function mapStateToProps(state, props) {
   const journal = state.journal;
-  const id = props.note.id;
+  const id = props.meeting.id;
   return {
-    note: journal[id]
+    meeting: journal[id]
   };
 }
 
@@ -41,4 +41,4 @@ function mapDispatchToProps() {
   };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(NoteComponent);
+export default connect(mapStateToProps, mapDispatchToProps)(MeetingComponent);
