@@ -1,7 +1,9 @@
+import { MEETING, MOOD, NOTE } from '../model/const';
+
 export const makeMeeting = (data, id) => {
   const { content, time } = data;
   return {
-    type: 'meeting',
+    type: MEETING,
     id: id,
     content: content,
     time: time
@@ -11,7 +13,7 @@ export const makeMeeting = (data, id) => {
 export const makeMood = (data, id) => {
   const { content, mood, time } = data;
   return {
-    type: 'mood',
+    type: MOOD,
     id: id,
     content: content,
     mood: mood,
@@ -22,7 +24,7 @@ export const makeMood = (data, id) => {
 export const makeNote = (data, id) => {
   const { content, time } = data;
   return {
-    type: 'note',
+    type: NOTE,
     id: id,
     content: content,
     time: time
