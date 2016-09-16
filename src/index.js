@@ -3,13 +3,11 @@ import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 import T from 'i18n-react';
 
-import configureStore from './stores';
+import PersistentStore from './persistence/PersistentStore';
 import locale from './i18n/locales/en-US';
 import App from './containers/App';
 
-const store = configureStore({
-	journal: []
-});
+const store = PersistentStore();
 
 T.setTexts(locale);
 
