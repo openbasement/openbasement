@@ -2,7 +2,7 @@ const localStorageKey = 'openbasement-store';
 
 export const persistData = state => localStorage[localStorageKey] = JSON.stringify(state);
 
-export const retriveData = initialState => {
+export const retrieveData = initialState => {
   const json = localStorage[localStorageKey];
   if (json) {
     const parsed = JSON.parse(json);

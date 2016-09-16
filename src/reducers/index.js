@@ -8,6 +8,17 @@
  */
 import { combineReducers } from 'redux';
 import addEntry from '../reducers/addEntry';
+import { updateAfterAnalyse } from '../analysis/Analysis';
 /* Populated by react-webpack-redux:reducer */
-const reducers = { journal: addEntry };
-module.exports = combineReducers(reducers);
+const reducers = {
+  journal: addEntry,
+  events: state => state || [],
+  interactions: state => state || {},
+  notifications: state => state || []
+};
+const combinedReducers = combineReducers(reducers);
+function enhancedReducer(...args) {
+  const updatedState = combinedReducers(...args);
+  return updateAfterAnalyse(updatedState);
+}
+module.exports = enhancedReducer;

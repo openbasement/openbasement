@@ -1,47 +1,18 @@
 import { ADD_MEETING, ADD_MOOD, ADD_NOTE } from 'actions/const';
-
-const makeMeeting = (action, id) => {
-  const { content, time } = action.payload;
-  return {
-    type: 'meeting',
-    id: id,
-    content: content,
-    time: time
-  };
-}
-
-const makeMood = (action, id) => {
-  const { content, mood, time } = action.payload;
-  return {
-    type: 'mood',
-    id: id,
-    content: content,
-    mood: mood,
-    time: time
-  };
-}
-
-const makeNote = (action, id) => {
-  const { content, time } = action.payload;
-  return {
-    type: 'note',
-    id: id,
-    content: content,
-    time: time
-  };
-}
+import { makeMeeting, makeMood, makeNote } from '../model/Entries';
+import { updateJournal } from '../model/State';
 
 const addEntry = (journal = [], action) => {
   // assert sorted ascending
-  const appendEntryToJournal = (entry) => [ ...journal, entry ];
+  const appendEntry = updateJournal(journal);
 
   switch (action.type) {
   case ADD_MEETING:
-    return appendEntryToJournal(makeMeeting(action, journal.length));
+    return appendEntry(makeMeeting(action.payload, journal.length));
   case ADD_MOOD:
-    return appendEntryToJournal(makeMood(action, journal.length));
+    return appendEntry(makeMood(action.payload, journal.length));
   case ADD_NOTE:
-    return appendEntryToJournal(makeNote(action, journal.length));
+    return appendEntry(makeNote(action.payload, journal.length));
   default:
     return journal;
   }
