@@ -42,18 +42,32 @@ const findInteractions = journal => {
 };
 
 const findNotifications = journal => {
-  journal.filter(entry => entry.type === MEETING);
+  const notifications = [];
 
-  const notificatons = [];
+  const nthEntryAdded = (n, content) => {
+    if (journal.length >= n)
+      notifications.push(makeNotification(content, journal[n - 1].time));
+  }
 
-  return notificatons.sort(sortByTime);
+  nthEntryAdded(1, 'entry-1');
+  nthEntryAdded(2, 'entry-2');
+  nthEntryAdded(5, 'entry-5');
+  nthEntryAdded(10, 'entry-10');
+  nthEntryAdded(20, 'entry-20');
+  nthEntryAdded(50, 'entry-50');
+  nthEntryAdded(100, 'entry-100');
+  nthEntryAdded(200, 'entry-200');
+  nthEntryAdded(500, 'entry-500');
+  nthEntryAdded(1000, 'entry-1000');
+
+  return notifications.sort(sortByTime);
 };
 
 const analyseJournal = journal => {
   return {
     events: findEvents(journal),
     interactions: findInteractions(journal),
-    notificatons: findNotifications(journal)
+    notifications: findNotifications(journal)
   };
 };
 

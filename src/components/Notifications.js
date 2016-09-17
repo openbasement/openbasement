@@ -4,11 +4,11 @@ import T from 'i18n-react';
 
 class NotificationsComponent extends React.Component {
   makeNotification(notification) {
-    return <div key={notification.time}>{notification.content}</div>;
+    return <div key={notification.time}>{T.translate(notification.content)}</div>;
   }
 
   render() {
-    const notifications = this.props.notifications.filter(notification => !notification.read);
+    const notifications = this.props.notifications.filter(notification => !notification.read).reverse();
     return (
       <section id="notifications">
         <h3><i className="fa fa-exclamation" /> {T.translate('Notifications')}</h3>
