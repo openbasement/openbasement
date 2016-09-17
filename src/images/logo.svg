@@ -1,0 +1,38 @@
+<svg width="512" height="512" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
+ <defs>
+  <filter id="svg_1_blur">
+   <feGaussianBlur stdDeviation="2"/>
+  </filter>
+  <filter id="svg_2_blur">
+   <feGaussianBlur stdDeviation="1"/>
+  </filter>
+  <clipPath id="svg_1_clip">
+   <rect x="300" y="310" width="80" height="160"/>
+  </clipPath>
+  <clipPath id="svg_2_clip">
+   <rect x="280" y="180" width="60" height="120"/>
+  </clipPath>
+ </defs>
+ <circle  stroke="#4a4e69" cx="255" cy="255" r="240"           stroke-width="20" fill="none" filter="url(#svg_1_blur)"/>
+ <circle  stroke="#f9f9f9" cx="255" cy="255" r="240"           stroke-width="15" fill="none" filter="url(#svg_2_blur)"/>
+ <g filter="url(#svg_1_blur)">
+  <circle stroke="#4a4e69" cx="300" cy="390" r="70"            stroke-width="20" fill="none" style="clip-path: url(#svg_1_clip)"/>
+  <line   stroke="#4a4e69" x1="190" y1="320" x2="300" y2="320" stroke-width="20" />
+  <line   stroke="#4a4e69" x1="195" y1="310" x2="195" y2="450" stroke-width="20" />
+  <line   stroke="#4a4e69" x1="185" y1="460" x2="300" y2="460" stroke-width="20" />
+  <circle stroke="#4a4e69" cx="280" cy="240" r="50"            stroke-width="20" fill="none" style="clip-path: url(#svg_2_clip)"/>
+  <line   stroke="#4a4e69" x1="210" y1="290" x2="280" y2="290" stroke-width="20" />
+  <line   stroke="#4a4e69" x1="190" y1="190" x2="280" y2="190" stroke-width="20" />
+  <line   stroke="#4a4e69" x1="200" y1="200" x2="200" y2="300" stroke-width="20" />
+ </g>
+ <g filter="url(#svg_2_blur)">
+  <circle stroke="#d3d3d3" cx="300" cy="390" r="70"            stroke-width="15" fill="none" style="clip-path: url(#svg_1_clip)"/>
+  <line   stroke="#d3d3d3" x1="190" y1="320" x2="300" y2="320" stroke-width="15" />
+  <line   stroke="#d3d3d3" x1="195" y1="313" x2="195" y2="460" stroke-width="15" />
+  <line   stroke="#d3d3d3" x1="187.5" y1="460" x2="300" y2="460"  stroke-width="15" />
+  <circle stroke="#d3d3d3" cx="280" cy="240" r="50"            stroke-width="15" fill="none" style="clip-path: url(#svg_2_clip)"/>
+  <line   stroke="#d3d3d3" x1="200" y1="290" x2="280" y2="290"  stroke-width="15" />
+  <line   stroke="#d3d3d3" x1="192.5" y1="190" x2="280" y2="190"  stroke-width="15" />
+  <line   stroke="#d3d3d3" x1="200" y1="190" x2="200" y2="297.5"  stroke-width="15" />
+ </g>
+</svg>

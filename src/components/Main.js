@@ -15,6 +15,7 @@ class AppComponent extends React.Component {
       <div className="index">
         <header>
           <div className="wrapper">
+            <img src="images/logo.svg" />
             <T.text tag="h1" text="title"/>
             <T.text tag="h2" text="subtitle"/>
           </div>
