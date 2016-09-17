@@ -1,0 +1,3 @@
+[submodule "dist"]
+	path = dist
+	url = git@github.com:openbasement/openbasement.github.io.git
