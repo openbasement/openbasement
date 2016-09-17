@@ -2,9 +2,12 @@ import { connect } from 'react-redux';
 import React from 'react';
 import T from 'i18n-react';
 
+import { hideNotificationAction } from 'actions/UiActions';
+
 class NotificationsComponent extends React.Component {
   makeNotification(notification) {
-    return <div key={notification.time}>{T.translate(notification.content)}</div>;
+    const hideNotification = () => this.props.actions.hideNotification(notification);
+    return <div key={notification.time}><i className="fa fa-remove" onClick={hideNotification}/> {T.translate(notification.content)}</div>;
   }
 
   render() {
@@ -12,14 +15,16 @@ class NotificationsComponent extends React.Component {
     return (
       <section id="notifications">
         <h3><i className="fa fa-exclamation" /> {T.translate('Notifications')}</h3>
-        {notifications.length > 0 ? notifications.map(this.makeNotification) : <T.div text="no-notifications" />}
+        {notifications.length > 0 ? notifications.map(this.makeNotification.bind(this)) : <T.div text="no-notifications" />}
       </section>
     );
   }
 }
 
 NotificationsComponent.defaultProps = {
-  actions: {},
+  actions: {
+    hideNotification: () => undefined
+  },
   notifications: []
 };
 
@@ -29,9 +34,11 @@ function mapStateToProps(state) {
   };
 }
 
-function mapDispatchToProps() {
+function mapDispatchToProps(dispatch) {
   return {
-    actions: {}
+    actions: {
+      hideNotification: (notification) => dispatch(hideNotificationAction(notification.content, notification.time))
+    }
   };
 }
 

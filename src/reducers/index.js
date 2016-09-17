@@ -8,6 +8,7 @@
  */
 import { combineReducers } from 'redux';
 import addEntry from '../reducers/addEntry';
+import hideNotification from '../reducers/hideNotification';
 import updateAfterAnalyse from '../reducers/updateAfterAnalyse';
 import devWrapper from '../reducers/devWrapper';
 /* Populated by react-webpack-redux:reducer */
@@ -15,7 +16,7 @@ const reducers = {
   journal: addEntry,
   events: state => state || [],
   interactions: state => state || {},
-  notifications: state => state || []
+  notifications: hideNotification
 };
 const combinedReducers = combineReducers(reducers);
 const enhancedReducer = updateAfterAnalyse(combinedReducers);

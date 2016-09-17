@@ -1,4 +1,4 @@
-import { UI_NS, ADD_MEETING, ADD_MOOD, ADD_NOTE } from 'actions/const';
+import { UI_NS, ADD_MEETING, ADD_MOOD, ADD_NOTE, HIDE_NOTIFICATION } from 'actions/const';
 
 export function addMeetingAction(content) {
   const now = new Date().toISOString();
@@ -33,6 +33,17 @@ export function addNoteAction(content) {
     payload: {
       content: content,
       time: now
+    }
+  };
+}
+
+export function hideNotificationAction(content, time) {
+  return {
+    ns: UI_NS,
+    type: HIDE_NOTIFICATION,
+    payload: {
+      content: content,
+      time: time
     }
   };
 }
