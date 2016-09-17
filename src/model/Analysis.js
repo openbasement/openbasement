@@ -1,4 +1,4 @@
-export const makeEvent = (content, time, read = false) => {
+export const makeEvent = (content, time) => {
   return {
     content: content,
     time: time

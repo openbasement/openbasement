@@ -3,22 +3,30 @@ import React from 'react';
 import T from 'i18n-react';
 
 class EventsComponent extends React.Component {
+  makeEvent(event) {
+    return <div key={event.time}>{T.translate(event.content)}</div>;
+  }
+
   render() {
+    const events = [ ...this.props.events ].reverse().slice(0, 4);
     return (
       <section id="events">
         <h3><i className="fa fa-calendar"/> {T.translate('Events')}</h3>
-        <T.div text="no-events" />
+        {events.length > 0 ? events.map(this.makeEvent) : <T.div text="no-events" />}
       </section>
     );
   }
 }
 
 EventsComponent.defaultProps = {
-  actions: {}
+  actions: {},
+  events: []
 };
 
-function mapStateToProps() {
-  return {};
+function mapStateToProps(state) {
+  return {
+    events: [ ...state.events ]
+  };
 }
 
 function mapDispatchToProps() {

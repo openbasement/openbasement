@@ -4,10 +4,15 @@ import { Provider } from 'react-redux';
 import T from 'i18n-react';
 
 import PersistentStore from './persistence/PersistentStore';
+import { RESET_STORE } from './actions/const';
 import locale from './i18n/locales/en-US';
 import App from './containers/App';
 
 const store = PersistentStore();
+
+window.resetState = () => {
+	store.dispatch({ type: RESET_STORE });
+};
 
 T.setTexts(locale);
 

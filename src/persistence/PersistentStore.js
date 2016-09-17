@@ -1,7 +1,7 @@
 import { applyMiddleware } from 'redux';
 
 import configureStore from 'stores';
-import initialState from '../model/State';;
+import initialState from '../model/State';
 import { persistData, retrieveData } from '../persistence/Persistence';
 
 const initialize = initialState => {

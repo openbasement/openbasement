@@ -14,11 +14,14 @@ class InteractionsComponent extends React.Component {
 }
 
 InteractionsComponent.defaultProps = {
-  actions: {}
+  actions: {},
+  interactions: {}
 };
 
-function mapStateToProps() {
-  return {};
+function mapStateToProps(state) {
+  return {
+    interactions: { ...state.interactions }
+  };
 }
 
 function mapDispatchToProps() {

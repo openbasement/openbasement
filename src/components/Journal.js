@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import React from 'react';
 
+import { MEETING, MOOD, NOTE } from '../model/const';
 import JournalInput from 'components/JournalInput';
 import Meeting from 'components/Meeting';
 import Mood from 'components/Mood';
@@ -9,12 +10,14 @@ import Note from 'components/Note';
 class JournalComponent extends React.Component {
   journalEntryToArticle(entry) {
     switch(entry.type) {
-    case 'meeting':
+    case MEETING:
       return <Meeting key={entry.id} meeting={entry} />;
-    case 'mood':
+    case MOOD:
       return <Mood key={entry.id} mood={entry} />;
-    case 'note':
+    case NOTE:
       return <Note key={entry.id} note={entry} />;
+    default:
+      console.warn('Unrecognized journal type', entry.type, ' for ', entry); // eslint-disable-line no-console
     }
   }
 

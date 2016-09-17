@@ -21,3 +21,11 @@ cd openbasement
 npm install
 npm start
 ```
+
+## Reseting data for test purposed
+
+Call in console:
+
+```javascript
+window.resetState()
+```
