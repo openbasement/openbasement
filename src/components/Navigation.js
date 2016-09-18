@@ -1,15 +1,18 @@
 import { connect } from 'react-redux';
 import React from 'react';
-import T from 'i18n-react';
+
+import Profile from 'components/Profile';
+import Friends from 'components/Friends';
+import Settings from 'components/Settings';
 
 class NavigationComponent extends React.Component {
   render() {
     return (
       <nav id="navigation">
         <ul>
-          <li><T.a text="Profile" href="#" /></li>
-          <li><T.a text="Friends" href="#" /></li>
-          <li><T.a text="Settings" href="#" /></li>
+          <Profile />
+          <Friends />
+          <Settings />
         </ul>
       </nav>
     );

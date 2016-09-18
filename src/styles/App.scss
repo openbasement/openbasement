@@ -247,3 +247,47 @@ footer {
   padding: $component-indent/3 0;
   text-align: center;
 }
+
+.ReactModal__Overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.75);
+}
+
+.ReactModal__Content {}
+
+.modal {
+  @include shadow-container(5px, 5px);
+  @include round-corners($component-indent/2, 0);
+  background: $component-color-3;
+  width: 50%;
+  margin: 15% auto;
+  padding: $component-indent;
+  position: relative;
+
+  h2 {
+    color: $text-color-4;
+    font-family: $elegant-font;
+    margin-top: 0;
+    text-shadow: 1px 1px $component-color-4;
+  }
+
+  .close-modal {
+    color: $text-color-4;
+    font-size: 15pt;
+    position: absolute;
+    top: $component-indent;
+    right: $component-indent;
+  }
+
+  div {
+    @include round-corners($component-indent/2, 0);
+    background: $std-background-color;
+    font-family: $casual-font;
+    font-size: 14pt;
+    padding: $component-indent;
+  }
+}

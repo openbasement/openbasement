@@ -72,6 +72,7 @@
     "react": "^15.0.0",
     "react-dom": "^15.0.0",
     "react-emojione": "^1.2.2",
+    "react-modal": "^1.4.0",
     "react-redux": "^4.4.5",
     "redux": "^3.5.2"
   }

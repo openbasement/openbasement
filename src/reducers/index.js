@@ -8,6 +8,7 @@
  */
 import { combineReducers } from 'redux';
 import addEntry from '../reducers/addEntry';
+import changeUi from '../reducers/changeUi';
 import hideNotification from '../reducers/hideNotification';
 import updateAfterAnalyse from '../reducers/updateAfterAnalyse';
 import devWrapper from '../reducers/devWrapper';
@@ -16,7 +17,8 @@ const reducers = {
   journal: addEntry,
   events: state => state || [],
   interactions: state => state || {},
-  notifications: hideNotification
+  notifications: hideNotification,
+  ui: changeUi
 };
 const combinedReducers = combineReducers(reducers);
 const enhancedReducer = updateAfterAnalyse(combinedReducers);

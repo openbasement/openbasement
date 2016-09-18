@@ -29,6 +29,21 @@ module.exports = {
   'mood': 'mood',
   'note': 'note',
 
+  // Profile
+
+  'profile-title': 'Your profile',
+  'profile-content': 'Nobody cares about about it.',
+
+  // Friends
+
+  'friends-title': 'Your friends',
+  'friends-content': 'You don\t have any, you live in a basement, remember?.',
+
+  // Settings
+
+  'settings-title': 'Your settings',
+  'settings-content': 'We don\t care enough to provide any settings.',
+
   // events
 
   'entry-1': 'Congrats! First entry!',

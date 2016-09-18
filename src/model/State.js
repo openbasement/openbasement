@@ -2,7 +2,8 @@ export const initialState = {
   journal: [],
   events: [],
   interactions: {},
-  notifications: []
+  notifications: [],
+  ui: {}
 };
 
 export const updateJournal = journal => entry => [ ...journal, entry ];
