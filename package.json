@@ -40,6 +40,7 @@
     "file-loader": "^0.9.0",
     "glob": "^7.0.0",
     "isparta-instrumenter-loader": "^1.0.0",
+    "json-loader": "^0.5.4",
     "karma": "^1.0.0",
     "karma-chai": "^0.1.0",
     "karma-coverage": "^1.0.0",
@@ -67,11 +68,13 @@
   },
   "dependencies": {
     "core-js": "^2.0.0",
+    "emojione": "^2.2.6",
     "i18n-react": "^0.3.0",
     "normalize.css": "^4.0.0",
     "react": "^15.0.0",
     "react-dom": "^15.0.0",
     "react-emojione": "^1.2.2",
+    "react-markdown": "^2.4.2",
     "react-modal": "^1.4.0",
     "react-redux": "^4.4.5",
     "redux": "^3.5.2"

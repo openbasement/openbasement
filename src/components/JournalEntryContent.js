@@ -1,16 +1,14 @@
 import { connect } from 'react-redux';
-import { emojify } from 'react-emojione';
+import emojione from 'emojione';
 import React from 'react';
 import ReactMarkdown from 'react-markdown';
-
-import emojioneOptions from '../images/emojioneOptions';
 
 class JournalEntryContentComponent extends React.Component {
   render() {
     const content = this.props.content;
-    emojify(content, emojioneOptions); // TODO
+    const emojified = emojione.shortnameToImage(content);
     return (
-      <ReactMarkdown source={content} />
+      <ReactMarkdown source={emojified} />
     );
   }
 }

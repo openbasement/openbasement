@@ -226,6 +226,11 @@ section#journal {
       margin-top: $component-indent;
     }
 
+    .emojione {
+      height: 8pt;
+      width: 8pt;
+    }
+
     .date {
       color: $text-color-2;
       font-weight: bold;
