@@ -1,21 +1,16 @@
 import { connect } from 'react-redux';
-import { emojify } from 'react-emojione';
 import React from 'react';
 
-import emojioneOptions from '../images/emojioneOptions';
+import JournalEntryContent from 'components/JournalEntryContent';
+import JournalEntryTime from 'components/JournalEntryTime';
 
 class MeetingComponent extends React.Component {
-  showDate(time) {
-    const date = new Date(time);
-    return date.toLocaleString();
-  }
-
   render() {
     const { id, content, time } = this.props.meeting;
     return (
       <article className="meeting" id={'meeting-'+id}>
-        <div className="date"><i className="fa fa-calendar-check-o" /> {this.showDate(time)}</div>
-        <div>{emojify(content, emojioneOptions)}</div>
+        <JournalEntryTime content={<i className="fa fa-sticky-check-o" />} time={time} />
+        <JournalEntryContent content={content} />
       </article>
     );
   }
