@@ -49,7 +49,7 @@ module.exports = {
 
   // events
 
-  'still-alive': '{time} you were still alive',
+  'still-alive': 'At {time} you were still alive',
 
   // interactions
 
@@ -67,5 +67,7 @@ module.exports = {
   'entry-100': '100 messages that no one will ever read',
   'entry-200': '200 messages to nobody - would you consider a bottle?',
   'entry-500': '500 posts. You have some serious issues there',
-  'entry-1000': 'Ok, I shut up. It apparently turns you on.'
+  'entry-1000': 'Ok, I shut up. It apparently turns you on.',
+
+  'moody-day': 'Today you are quite moody, aren\'t you?'
 }

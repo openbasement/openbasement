@@ -1,23 +1,24 @@
-import { MEETING } from '../model/const';
+import { MEETING, MOOD } from '../model/const';
 import { makeEvent, makeInteraction, makeNotification } from '../model/Analysis';
 
 const sortByTime = (a, b) => Date.parse(a) - Date.parse(b);
 
+const asDay = (time) => {
+  const date = new Date(time);
+  date.setHours(0, 0, 0, 0);
+  return date;
+}
+
+const addFirstTimeFromDay = (times, entry) => {
+  const date = asDay(entry.time);
+  const dates = times.map(asDay);
+  return !dates.find(d => d.valueOf() === date.valueOf()) ? [ ...times, entry.time ] : times;
+}
+
 const findEvents = journal => {
   const events = [];
 
-  const asDay = (time) => {
-    const date = new Date(time);
-    date.setHours(0, 0, 0, 0);
-    return date;
-  }
-  const addFirstFromDay = (times, entry) => {
-    const date = asDay(entry.time);
-    const dates = times.map(asDay);
-    return !dates.find(d => d.valueOf() === date.valueOf()) ? [ ...times, entry.time ] : times;
-  }
-  const stayAliveEvents = journal.reduce(addFirstFromDay, []).map(time => makeEvent('still-alive', time));
-
+  const stayAliveEvents = journal.reduce(addFirstTimeFromDay, []).map(time => makeEvent('still-alive', time));
   events.push.apply(events, stayAliveEvents);
 
   return events.sort(sortByTime);
@@ -40,13 +41,14 @@ const findInteractions = journal => {
 };
 
 const findNotifications = journal => {
+  const moods = journal.filter(entry => entry.type === MOOD);
+
   const notifications = [];
 
   const nthEntryAdded = (n, content) => {
     if (journal.length >= n)
       notifications.push(makeNotification(content, journal[n - 1].time));
   }
-
   nthEntryAdded(1, 'entry-1');
   nthEntryAdded(2, 'entry-2');
   nthEntryAdded(5, 'entry-5');
@@ -57,6 +59,17 @@ const findNotifications = journal => {
   nthEntryAdded(200, 'entry-200');
   nthEntryAdded(500, 'entry-500');
   nthEntryAdded(1000, 'entry-1000');
+
+  const moodyDay = (times, entry) => {
+    const date = asDay(entry.time);
+    const earlierSameDayDifferentMood = moods
+        .filter(mood => Date.parse(entry.time) > Date.parse(mood.time))
+        .filter(mood => asDay(mood.time).valueOf() === date.valueOf())
+        .filter(mood => mood.mood !== entry.mood);
+    return earlierSameDayDifferentMood.length > 0 ? [ ...times, entry.time ] : times;
+  };
+  const moodyDayNotification = moods.reduce(moodyDay, []).map(time => makeNotification('moody-day', time));
+  notifications.push.apply(notifications, moodyDayNotification);
 
   return notifications.sort(sortByTime);
 };

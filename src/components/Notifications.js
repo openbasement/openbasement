@@ -6,8 +6,9 @@ import { hideNotificationAction } from 'actions/UiActions';
 
 class NotificationsComponent extends React.Component {
   makeNotification(notification) {
+    const date = new Date(notification.time).toLocaleString();
     const hideNotification = () => this.props.actions.hideNotification(notification);
-    return <div key={notification.time}><i className="fa fa-remove" onClick={hideNotification}/> {T.translate(notification.content)}</div>;
+    return <div key={notification.time}><i className="fa fa-remove" onClick={hideNotification}/> {T.translate(notification.content, { time: date })}</div>;
   }
 
   render() {
