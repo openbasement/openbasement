@@ -9,7 +9,7 @@ class MeetingComponent extends React.Component {
     const { id, content, time } = this.props.meeting;
     return (
       <article className="meeting" id={'meeting-'+id}>
-        <JournalEntryTime content={<i className="fa fa-sticky-check-o" />} time={time} />
+        <JournalEntryTime content={<i className="fa fa-calendar-check-o" />} time={time} />
         <JournalEntryContent content={content} />
       </article>
     );
