@@ -4,7 +4,8 @@ import T from 'i18n-react';
 
 class EventsComponent extends React.Component {
   makeEvent(event) {
-    return <div key={event.time}>{T.translate(event.content)}</div>;
+    const date = new Date(event.time).toLocaleString();
+    return <div key={event.time}>{T.translate(event.content, { time: date })}</div>;
   }
 
   render() {

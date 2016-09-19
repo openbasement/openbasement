@@ -6,21 +6,19 @@ const sortByTime = (a, b) => Date.parse(a) - Date.parse(b);
 const findEvents = journal => {
   const events = [];
 
-  const nthEntryAdded = (n, content) => {
-    if (journal.length >= n)
-      events.push(makeEvent(content, journal[n - 1].time));
+  const asDay = (time) => {
+    const date = new Date(time);
+    date.setHours(0, 0, 0, 0);
+    return date;
   }
+  const addFirstFromDay = (times, entry) => {
+    const date = asDay(entry.time);
+    const dates = times.map(asDay);
+    return !dates.find(d => d.valueOf() === date.valueOf()) ? [ ...times, entry.time ] : times;
+  }
+  const stayAliveEvents = journal.reduce(addFirstFromDay, []).map(time => makeEvent('still-alive', time));
 
-  nthEntryAdded(1, 'entry-1');
-  nthEntryAdded(2, 'entry-2');
-  nthEntryAdded(5, 'entry-5');
-  nthEntryAdded(10, 'entry-10');
-  nthEntryAdded(20, 'entry-20');
-  nthEntryAdded(50, 'entry-50');
-  nthEntryAdded(100, 'entry-100');
-  nthEntryAdded(200, 'entry-200');
-  nthEntryAdded(500, 'entry-500');
-  nthEntryAdded(1000, 'entry-1000');
+  events.push.apply(events, stayAliveEvents);
 
   return events.sort(sortByTime);
 };
