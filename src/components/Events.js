@@ -3,13 +3,17 @@ import React from 'react';
 import T from 'i18n-react';
 
 class EventsComponent extends React.Component {
+  static propTypes = {
+    events: React.PropTypes.array.isRequired
+  }
+
   makeEvent(event) {
     const date = new Date(event.time).toLocaleString();
     return <div key={event.time}>{T.translate(event.content, { time: date })}</div>;
   }
 
   render() {
-    const events = [ ...this.props.events ].reverse().slice(0, 4);
+    const events = [...this.props.events].reverse().slice(0, 4);
     return (
       <section id="events">
         <h3><i className="fa fa-calendar"/> {T.translate('Events')}</h3>
@@ -26,7 +30,7 @@ EventsComponent.defaultProps = {
 
 function mapStateToProps(state) {
   return {
-    events: [ ...state.events ]
+    events: [...state.events]
   };
 }
 

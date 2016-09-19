@@ -1,13 +1,13 @@
 import 'normalize.css/normalize.css';
-import 'styles/App.scss';
+import '../styles/App.scss';
 
 import { connect } from 'react-redux';
 import React from 'react';
 import T from 'i18n-react';
 
-import Navigation from 'components/Navigation';
-import SideNotes from 'components/SideNotes';
-import Journal from 'components/Journal';
+import Navigation from '../components/Navigation';
+import SideNotes from '../components/SideNotes';
+import Journal from '../components/Journal';
 
 class AppComponent extends React.Component {
   render() {

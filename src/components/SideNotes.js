@@ -1,9 +1,9 @@
 import { connect } from 'react-redux';
 import React from 'react';
 
-import Notifications from 'components/Notifications'
-import Events from 'components/Events'
-import Interactions from 'components/Interactions'
+import Notifications from '../components/Notifications';
+import Events from '../components/Events';
+import Interactions from '../components/Interactions';
 
 class SideNotesComponent extends React.Component {
   render() {

@@ -3,7 +3,7 @@ import { emojify } from 'react-emojione';
 import React from 'react';
 import T from 'i18n-react';
 
-import { addMeetingAction, addMoodAction, addNoteAction } from 'actions/UiActions';
+import { addMeetingAction, addMoodAction, addNoteAction } from '../actions/UiActions';
 import emojioneOptions from '../images/emojioneOptions';
 
 const menuEmoijiOptions = {
@@ -17,6 +17,15 @@ const menuEmoijiOptions = {
 };
 
 class JournalInputComponent extends React.Component {
+  static propTypes = {
+    actions: React.PropTypes.shape({
+      onAddMeeting: React.PropTypes.func.isRequired,
+      onAddMood: React.PropTypes.func.isRequired,
+      onAddNote: React.PropTypes.func.isRequired
+    }),
+    journalSize: React.PropTypes.number.isRequired
+  }
+
   componentDidUpdate(prevProps) {
     if (prevProps.journalSize < this.props.journalSize && this._input) {
       this._input.value = '';
@@ -33,9 +42,13 @@ class JournalInputComponent extends React.Component {
 
     const makeEmojiButton = (name) => emojify(name, menuEmoijiOptions);
 
+    function attatchInput(ta) {
+      this._input = ta;
+    }
+
     return (
       <div id="journal-input">
-        <textarea ref={(ta) => this._input = ta} />
+        <textarea ref={attatchInput.bind(this)} />
         <div>{T.translate('hint')} <a href="http://emoji.codes/">emojione</a>, <a href="http://commonmark.org/">markdown</a></div>
         <ul>
           <li onClick={addNote}><i className="fa fa-sticky-note-o" /> {T.translate('note')}</li>

@@ -6,6 +6,10 @@ import ReactDOM from 'react-dom';
 import ReactMarkdown from 'react-markdown';
 
 class JournalEntryContentComponent extends React.Component {
+  static propTypes = {
+    content: React.PropTypes.string.isRequired
+  }
+
   componentDidMount() {
     const here = ReactDOM.findDOMNode(this);
     const codes = here.querySelectorAll('pre code');

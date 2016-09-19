@@ -2,9 +2,16 @@ import { connect } from 'react-redux';
 import React from 'react';
 import T from 'i18n-react';
 
-import { hideNotificationAction } from 'actions/UiActions';
+import { hideNotificationAction } from '../actions/UiActions';
 
 class NotificationsComponent extends React.Component {
+  static propTypes = {
+    actions: React.PropTypes.shape({
+      hideNotification: React.PropTypes.func.isRequired
+    }),
+    notifications: React.PropTypes.array.isRequired
+  }
+
   makeNotification(notification) {
     const date = new Date(notification.time).toLocaleString();
     const hideNotification = () => this.props.actions.hideNotification(notification);
@@ -31,7 +38,7 @@ NotificationsComponent.defaultProps = {
 
 function mapStateToProps(state) {
   return {
-    notifications: [ ...state.notifications ]
+    notifications: [...state.notifications]
   };
 }
 

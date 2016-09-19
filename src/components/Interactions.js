@@ -3,6 +3,10 @@ import React from 'react';
 import T from 'i18n-react';
 
 class InteractionsComponent extends React.Component {
+  static propTypes = {
+    interactions: React.PropTypes.object.isRequired
+  }
+
   makeIntaraction(interaction) {
     return <div key={interaction.key}>{interaction.content}</div>;
   }

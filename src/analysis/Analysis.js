@@ -7,13 +7,13 @@ const asDay = (time) => {
   const date = new Date(time);
   date.setHours(0, 0, 0, 0);
   return date;
-}
+};
 
 const addFirstTimeFromDay = (times, entry) => {
   const date = asDay(entry.time);
   const dates = times.map(asDay);
-  return !dates.find(d => d.valueOf() === date.valueOf()) ? [ ...times, entry.time ] : times;
-}
+  return !dates.find(d => d.valueOf() === date.valueOf()) ? [...times, entry.time] : times;
+};
 
 const findEvents = journal => {
   const events = [];
@@ -46,9 +46,10 @@ const findNotifications = journal => {
   const notifications = [];
 
   const nthEntryAdded = (n, content) => {
-    if (journal.length >= n)
+    if (journal.length >= n) {
       notifications.push(makeNotification(content, journal[n - 1].time));
-  }
+    }
+  };
   nthEntryAdded(1, 'entry-1');
   nthEntryAdded(2, 'entry-2');
   nthEntryAdded(5, 'entry-5');
@@ -66,7 +67,7 @@ const findNotifications = journal => {
         .filter(mood => Date.parse(entry.time) > Date.parse(mood.time))
         .filter(mood => asDay(mood.time).valueOf() === date.valueOf())
         .filter(mood => mood.mood !== entry.mood);
-    return earlierSameDayDifferentMood.length > 0 ? [ ...times, entry.time ] : times;
+    return earlierSameDayDifferentMood.length > 0 ? [...times, entry.time] : times;
   };
   const moodyDayNotification = moods.reduce(moodyDay, []).map(time => makeNotification('moody-day', time));
   notifications.push.apply(notifications, moodyDayNotification);

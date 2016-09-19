@@ -3,19 +3,27 @@ import Modal from 'react-modal';
 import React from 'react';
 import T from 'i18n-react';
 
-import { openProfileAction, closeProfileAction } from 'actions/UiActions';
+import { openProfileAction, closeProfileAction } from '../actions/UiActions';
 
 class ProfileComponent extends React.Component {
+  static propTypes = {
+    actions: React.PropTypes.shape({
+      closeProfile: React.PropTypes.func.isRequired,
+      openProfile: React.PropTypes.func.isRequired
+    }),
+    isProfileOpened: React.PropTypes.bool
+  }
+
   render() {
     const isProfileOpened = this.props.isProfileOpened;
     const closeProfile = this.props.actions.closeProfile;
     const openProfile = this.props.actions.openProfile;
     return (
       <li>
-        <T.a text="Profile" href="#" onClick={openProfile} />
+        <T.a onClick={openProfile} text="Profile" />
         <Modal
-            isOpen={isProfileOpened}
-            className="modal">
+            className="modal"
+            isOpen={isProfileOpened}>
           <h2>{T.translate('profile-title')}</h2>
           <i className="fa fa-close close-modal" onClick={closeProfile} />
           <div>{T.translate('profile-content')}</div>

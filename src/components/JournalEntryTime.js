@@ -15,6 +15,12 @@ const entryEmoijiOptions = {
 };
 
 class JournalEntryTimeComponent extends React.Component {
+  static propTypes = {
+    content: React.PropTypes.any.isRequired,
+    shouldEmojify: React.PropTypes.bool,
+    time: React.PropTypes.string.isRequired
+  }
+
   showDate(time) {
     const date = new Date(time);
     return date.toLocaleString();

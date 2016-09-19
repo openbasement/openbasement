@@ -70,4 +70,4 @@ module.exports = {
   'entry-1000': 'Ok, I shut up. It apparently turns you on.',
 
   'moody-day': 'Today you are quite moody, aren\'t you?'
-}
+};

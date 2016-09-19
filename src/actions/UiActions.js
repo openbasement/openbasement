@@ -1,6 +1,7 @@
 import { UI_NS, ADD_MEETING, ADD_MOOD, ADD_NOTE,
          HIDE_NOTIFICATION,
-         OPEN_PROFILE, CLOSE_PROFILE, CLOSE_FRIENDS, OPEN_FRIENDS, CLOSE_SETTINGS, OPEN_SETTINGS } from 'actions/const';
+         OPEN_PROFILE, CLOSE_PROFILE, CLOSE_FRIENDS, OPEN_FRIENDS, CLOSE_SETTINGS, OPEN_SETTINGS
+       } from '../actions/const';
 
 export function addMeetingAction(content) {
   const now = new Date().toISOString();
@@ -11,8 +12,8 @@ export function addMeetingAction(content) {
       content: content,
       time: now
     }
-  }
-}
+  };
+};
 
 export function addMoodAction(content, mood) {
   const now = new Date().toISOString();
@@ -25,7 +26,7 @@ export function addMoodAction(content, mood) {
       time: now
     }
   };
-}
+};
 
 export function addNoteAction(content) {
   const now = new Date().toISOString();
@@ -37,7 +38,7 @@ export function addNoteAction(content) {
       time: now
     }
   };
-}
+};
 
 export function hideNotificationAction(content, time) {
   return {
@@ -48,7 +49,7 @@ export function hideNotificationAction(content, time) {
       time: time
     }
   };
-}
+};
 
 export function closeProfileAction() {
   return {
@@ -56,7 +57,7 @@ export function closeProfileAction() {
     type: CLOSE_PROFILE,
     payload: {}
   };
-}
+};
 
 export function openProfileAction() {
   return {
@@ -64,8 +65,7 @@ export function openProfileAction() {
     type: OPEN_PROFILE,
     payload: {}
   };
-}
-
+};
 
 export function closeFriendsAction() {
   return {
@@ -81,8 +81,7 @@ export function openFriendsAction() {
     type: OPEN_FRIENDS,
     payload: {}
   };
-}
-
+};
 
 export function closeSettingsAction() {
   return {
@@ -90,7 +89,7 @@ export function closeSettingsAction() {
     type: CLOSE_SETTINGS,
     payload: {}
   };
-}
+};
 
 export function openSettingsAction() {
   return {
@@ -98,4 +97,4 @@ export function openSettingsAction() {
     type: OPEN_SETTINGS,
     payload: {}
   };
-}
+};
