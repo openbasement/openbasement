@@ -3,6 +3,7 @@ import { render } from 'react-dom';
 import Modal from 'react-modal';
 import { Provider } from 'react-redux';
 import T from 'i18n-react';
+import hljs from 'highlight.js';
 
 import PersistentStore from './persistence/PersistentStore';
 import { RESET_STORE } from './actions/const';
@@ -21,6 +22,8 @@ window.resetState = () => {
 };
 
 T.setTexts(locale);
+
+hljs.initHighlightingOnLoad();
 
 render(
   <Provider store={store}>
