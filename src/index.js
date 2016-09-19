@@ -23,11 +23,11 @@ window.resetState = () => {
 
 T.setTexts(locale);
 
-hljs.initHighlightingOnLoad();
-
 render(
   <Provider store={store}>
     <App />
   </Provider>,
   document.getElementById('app')
 );
+
+hljs.initHighlighting();
