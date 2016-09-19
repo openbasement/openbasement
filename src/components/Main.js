@@ -25,7 +25,7 @@ class AppComponent extends React.Component {
           <SideNotes />
           <Journal />
         </div>
-        <T.text tag="footer" text="footer" />
+        <footer>{T.translate('footer')} - <a href="https://github.com/openbasement/openbasement#openbasement">{T.translate('about')}</a></footer>
       </div>
     );
   }

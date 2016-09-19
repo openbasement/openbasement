@@ -4,6 +4,7 @@ module.exports = {
   'title': 'OpenBasement',
   'subtitle': 'anti-social no-network',
   'footer': '¬©2016 OpenBasement team and (imagined) friends',
+  'about': 'About us',
 
   // main menu
 
@@ -29,6 +30,8 @@ module.exports = {
   'mood': 'mood',
   'note': 'note',
 
+  'hint': 'You can use:',
+
   // Profile
 
   'profile-title': 'Your profile',
@@ -37,12 +40,12 @@ module.exports = {
   // Friends
 
   'friends-title': 'Your friends',
-  'friends-content': 'You don\t have any, you live in a basement, remember?.',
+  'friends-content': 'You don\'t have any, you live in a basement, remember?.',
 
   // Settings
 
   'settings-title': 'Your settings',
-  'settings-content': 'We don\t care enough to provide any settings.',
+  'settings-content': 'We don\'t care enough to provide any settings.',
 
   // events
 

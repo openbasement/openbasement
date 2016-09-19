@@ -36,6 +36,7 @@ class JournalInputComponent extends React.Component {
     return (
       <div id="journal-input">
         <textarea ref={(ta) => this._input = ta} />
+        <div>{T.translate('hint')} <a href="http://emoji.codes/">emojione</a>, <a href="http://commonmark.org/">markdown</a></div>
         <ul>
           <li onClick={addNote}><i className="fa fa-sticky-note-o" /> {T.translate('note')}</li>
           <li onClick={addMeeting}><i className="fa fa-calendar-check-o" /> {T.translate('meeting')}</li>
