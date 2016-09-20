@@ -20,10 +20,11 @@ class NotificationsComponent extends React.Component {
 
   render() {
     const notifications = this.props.notifications.filter(notification => !notification.read).reverse();
+    const makeNotification = this.makeNotification.bind(this);
     return (
       <section id="notifications">
         <h3><i className="fa fa-exclamation" /> {T.translate('Notifications')}</h3>
-        {notifications.length > 0 ? notifications.map(this.makeNotification.bind(this)) : <T.div text="no-notifications" />}
+        {notifications.length > 0 ? notifications.map(makeNotification) : <T.div text="no-notifications" />}
       </section>
     );
   }

@@ -42,9 +42,9 @@ class JournalInputComponent extends React.Component {
 
     const makeEmojiButton = (name) => emojify(name, menuEmoijiOptions);
 
-    function attatchInput(ta) {
+    const attatchInput = (function(ta) {
       this._input = ta;
-    }
+    }).bind(this);
 
     return (
       <div id="journal-input">
