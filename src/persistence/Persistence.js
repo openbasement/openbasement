@@ -10,7 +10,6 @@ export function retrieveData(initialState) {
     return initialState;
   }
   const parsed = JSON.parse(json);
-  console.warn(initialState, parsed); // eslint-disable-line no-console
   return parsed ? { ...initialState, ...parsed } : initialState;
 };
 
