@@ -3,7 +3,7 @@ import Modal from 'react-modal';
 import React from 'react';
 import T from 'i18n-react';
 
-import { openFriendsAction, closeFriendsAction } from '../actions/UiActions';
+import { openFriendsAction, closeFriendsAction } from '../actions/uiActions';
 
 class FriendsComponent extends React.Component {
   static propTypes = {

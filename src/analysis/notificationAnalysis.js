@@ -1,6 +1,6 @@
+import { asDay, sortByTime } from '../analysis/common';
+import { makeNotification } from '../model/analysis';
 import { MOOD } from '../model/const';
-import { makeNotification } from '../model/Analysis';
-import { asDay, sortByTime } from '../analysis/Common';
 
 const nthEntry = (journal, n, content) => journal.length > n ? [makeNotification(content, journal[n - 1].time)] : [];
 const nthEntryEvents = journal => [
@@ -29,9 +29,9 @@ const moodyDayEvents = journal => {
   return moods.reduce(moodyDay, []).map(time => makeNotification('moody-day', time));
 };
 
-const NotificationAnalysis = journal => [
+const notificationAnalysis = journal => [
   ...nthEntryEvents(journal),
   ...moodyDayEvents(journal)
 ].sort(sortByTime);
 
-export default NotificationAnalysis;
+export default notificationAnalysis;

@@ -3,7 +3,7 @@ import { emojify } from 'react-emojione';
 import React from 'react';
 import T from 'i18n-react';
 
-import { addMeetingAction, addMoodAction, addNoteAction } from '../actions/UiActions';
+import { addMeetingAction, addMoodAction, addNoteAction } from '../actions/uiActions';
 import emojioneOptions from '../images/emojioneOptions';
 
 const menuEmoijiOptions = {

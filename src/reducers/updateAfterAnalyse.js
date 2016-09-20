@@ -1,5 +1,5 @@
-import analyseJournal from '../analysis/Analysis';
-import { updateAnalysis } from '../model/State';
+import analyseJournal from '../analysis/analysis';
+import { updateAnalysis } from '../model/state';
 
 const updateAfterAnalyse = reducer => (state, action) => {
   const newState = reducer(state, action);

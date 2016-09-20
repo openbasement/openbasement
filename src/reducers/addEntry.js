@@ -1,6 +1,6 @@
 import { ADD_MEETING, ADD_MOOD, ADD_NOTE } from '../actions/const';
-import { makeMeeting, makeMood, makeNote } from '../model/Entries';
-import { updateJournal } from '../model/State';
+import { makeMeeting, makeMood, makeNote } from '../model/entries';
+import { updateJournal } from '../model/state';
 
 function addEntry(journal = [], action) {
   // assert sorted ascending

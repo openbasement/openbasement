@@ -1,5 +1,5 @@
+import { makeInteraction } from '../model/analysis';
 import { MEETING } from '../model/const';
-import { makeInteraction } from '../model/Analysis';
 
 const emptyInteractions = {
   lastMeeting: undefined,
@@ -12,6 +12,6 @@ const findInteractions = meetings => meetings.length === 0 ? emptyInteractions :
   meetingsTotal: makeInteraction(meetings.length, 1)
 });
 
-const InteractionAnalysis = journal => findInteractions(journal.filter(entry => entry.type === MEETING));
+const interactionAnalysis = journal => findInteractions(journal.filter(entry => entry.type === MEETING));
 
-export default InteractionAnalysis;
+export default interactionAnalysis;
