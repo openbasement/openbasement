@@ -6,12 +6,12 @@ export function persistData(state) {
 
 export function retrieveData(initialState) {
   const json = localStorage[localStorageKey];
-  if (json) {
-    const parsed = JSON.parse(json);
-    return { ...initialState, ...parsed };
-  } else {
+  if (!json) {
     return initialState;
   }
+  const parsed = JSON.parse(json);
+  console.warn(initialState, parsed); // eslint-disable-line no-console
+  return parsed ? { ...initialState, ...parsed } : initialState;
 };
 
 export function resetData() {
