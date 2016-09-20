@@ -15,9 +15,8 @@ class ProfileComponent extends React.Component {
   }
 
   render() {
-    const isProfileOpened = this.props.isProfileOpened;
-    const closeProfile = this.props.actions.closeProfile;
-    const openProfile = this.props.actions.openProfile;
+    const { isProfileOpened } = this.props;
+    const { closeProfile, openProfile } = this.props.actions;
     return (
       <li>
         <T.a onClick={openProfile} text="Profile" />

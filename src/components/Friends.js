@@ -15,9 +15,8 @@ class FriendsComponent extends React.Component {
   }
 
   render() {
-    const isFriendsOpened = this.props.isFriendsOpened;
-    const closeFriends = this.props.actions.closeFriends;
-    const openFriends = this.props.actions.openFriends;
+    const { isFriendsOpened } = this.props;
+    const { closeFriends, openFriends } = this.props.actions;
     return (
       <li>
         <T.a onClick={openFriends} text="Friends" />

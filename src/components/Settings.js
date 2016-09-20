@@ -15,9 +15,8 @@ class SettingsComponent extends React.Component {
   }
 
   render() {
-    const isSettingsOpened = this.props.isSettingsOpened;
-    const closeSettings = this.props.actions.closeSettings;
-    const openSettings = this.props.actions.openSettings;
+    const { isSettingsOpened } = this.props;
+    const { closeSettings, openSettings } = this.props.actions;
     return (
       <li>
         <T.a onClick={openSettings} text="Settings" />
