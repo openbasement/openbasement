@@ -8,7 +8,7 @@ class EventsComponent extends React.Component {
   }
 
   makeEvent(event) {
-    const date = new Date(event.time).toLocaleString();
+    const date = new Date(event.time).toLocaleDateString();
     return <div key={event.time}>{T.translate(event.content, { time: date })}</div>;
   }
 

@@ -15,7 +15,7 @@ class InteractionsComponent extends React.Component {
     const elements = [];
 
     if (interactions.lastMeeting) {
-      const time = interactions.lastMeeting.content;
+      const time = this.showDate(interactions.lastMeeting.content);
       elements.push({ ...interactions.lastMeeting, content: T.translate('last-meeting', { time: time }) });
     }
     if (interactions.meetingsTotal) {
@@ -24,6 +24,11 @@ class InteractionsComponent extends React.Component {
     }
 
     return elements;
+  }
+
+  showDate(time) {
+    const date = new Date(time);
+    return date.toLocaleString();
   }
 
   render() {
