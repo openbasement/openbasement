@@ -30,8 +30,8 @@ class JournalInputComponent extends React.Component {
 
   componentDidUpdate(prevProps) {
     if (prevProps.journalSize < this.props.journalSize && this._input) {
-      this._input.value = '';
       this._input.style = '';
+      this._input.value = '';
     }
   }
 
@@ -39,9 +39,15 @@ class JournalInputComponent extends React.Component {
     const { onAddMeeting, onAddMood, onAddNote } = this.props.actions;
 
     const getContent = () => this._input ? this._input.value : '';
-    const addMeeting = () => onAddMeeting(getContent());
-    const addMood = (mood) => () => onAddMood(getContent(), mood);
-    const addNote = () => onAddNote(getContent());
+    const dispatchIfContent = actionDispatcher => () => {
+      const content = getContent();
+      if (content.trim()) {
+        actionDispatcher(content);
+      }
+    };
+    const addMeeting = dispatchIfContent(onAddMeeting);
+    const addMood = (mood) => dispatchIfContent(content => onAddMood(content, mood));
+    const addNote = dispatchIfContent(onAddNote);
 
     const makeEmojiButton = (name) => emojify(name, menuEmoijiOptions);
 
