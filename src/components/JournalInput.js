@@ -12,9 +12,10 @@ const menuEmoijiOptions = {
   ...emojioneOptions,
   styles: {
     ...emojioneOptions.styles,
-    height: '7pt',
-    width: '7pt',
-    margin: '0'
+    height: '12pt',
+    width: '12pt',
+    margin: '0',
+    marginBottom: '-3.5pt'
   }
 };
 

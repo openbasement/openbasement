@@ -20,7 +20,7 @@
 
 @mixin journal-text() {
   color: $std-text-color;
-  font-size: 8pt;
+  font-size: 10pt;
 }
 
 html {
@@ -42,7 +42,7 @@ a {
 
 $component-indent: 20px;
 $page-width: 950px;
-$min-page-width: 700px;
+$min-page-width: 750px;
 
 .index {
   max-width: $page-width;
@@ -78,21 +78,21 @@ header {
       width: $header-height;
       height: $header-height;
       position: absolute;
-      left: $header-indents*1;
+      left: $component-indent*1;
     }
 
     h1 {
       color: $text-color-4;
       font-size: 14pt;
       margin: 0;
-      margin-left: $header-indents*5;
+      margin-left: $component-indent + $header-height + $header-indents*1;
     }
 
     h2 {
       color: $text-color-3;
       font-size: 10pt;
       margin: 0;
-      margin-left: $header-indents*7;
+      margin-left: $component-indent + $header-height + $header-indents*2;
     }
   }
 
@@ -106,15 +106,18 @@ nav#navigation {
   height: $nav-height;
   padding-top: ($nav-height - 11pt)/2;
   position: absolute;
+  text-align: right;
   text-shadow: 1px 1px $component-color-4;
-  left: 50%;
-  width: 50%;
-  min-width: $min-page-width/2;
+  left: 0;
+  width: 100%;
+  min-width: $min-page-width;
 
   ul {
     margin: 0 auto;
     padding: 0;
+    padding-right: $component-indent/2;
     list-style: none;
+    max-width: $page-width;
 
     li {
       display: inline-block;
@@ -149,7 +152,7 @@ aside#side-notes {
     border-top: 1px solid $component-color-1;
 
     > * {
-      font-size: 8pt;
+      font-size: 10pt;
       color: $text-color-1;
       margin: $component-indent/2 $component-indent;
     }
@@ -162,7 +165,7 @@ aside#side-notes {
       border-bottom: 1px dashed $component-color-1;
       color: $text-color-2;
       font-family: $casual-font;
-      font-size: 10pt;
+      font-size: 12pt;
       margin: $component-indent auto;
       text-align: center;
       text-shadow: 2px 2px $component-color-0;
@@ -188,7 +191,7 @@ aside#side-notes {
     padding: $component-indent;
 
     > div {
-      float: right;
+      float: left;
       font-size: 8pt;
     }
 
@@ -196,21 +199,25 @@ aside#side-notes {
       margin: 0;
       margin-top: $component-indent/2;
       padding: 0;
+      text-align: right;
 
       li {
         @include round-corners(2px, 2px);
         background-color: $std-background-color;
         border: 1px solid $text-color-3;
+        color: $text-color-2;
         display: inline-block;
         margin-right: $component-indent/2;
-        font-size: 7pt;
+        font-size: 9pt;
+        font-weight: bold;
         padding: $component-indent/3;
+        text-align: left;
       }
     }
 
     textarea {
       @include journal-text();
-      border: 1px solid $text-color-3;
+      border: 0;
       display: block;
       width: 100%;
     }
