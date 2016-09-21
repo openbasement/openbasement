@@ -49,7 +49,7 @@ module.exports = {
 
   // events
 
-  'still-alive': 'At {time} you were still alive',
+  'still-alive': 'On {date} you were still alive',
 
   // interactions
 
