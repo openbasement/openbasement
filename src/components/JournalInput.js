@@ -1,6 +1,8 @@
+import autosize from 'autosize';
 import { connect } from 'react-redux';
 import { emojify } from 'react-emojione';
 import React from 'react';
+import ReactDOM from 'react-dom';
 import T from 'i18n-react';
 
 import { addMeetingAction, addMoodAction, addNoteAction } from '../actions/uiActions';
@@ -29,6 +31,7 @@ class JournalInputComponent extends React.Component {
   componentDidUpdate(prevProps) {
     if (prevProps.journalSize < this.props.journalSize && this._input) {
       this._input.value = '';
+      this._input.style = '';
     }
   }
 
@@ -46,9 +49,11 @@ class JournalInputComponent extends React.Component {
       this._input = ta;
     }).bind(this);
 
+    const resizeInput = (textarea) => autosize(ReactDOM.findDOMNode(this._input));
+
     return (
       <div id="journal-input">
-        <textarea ref={attatchInput.bind(this)} />
+        <textarea onChange={resizeInput} ref={attatchInput} />
         <div>{T.translate('hint')} <a href="http://emoji.codes/">emojione</a>, <a href="http://commonmark.org/">markdown</a></div>
         <ul>
           <li onClick={addNote}><i className="fa fa-sticky-note-o" /> {T.translate('note')}</li>
