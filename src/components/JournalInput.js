@@ -28,6 +28,10 @@ class JournalInputComponent extends React.Component {
     journalSize: React.PropTypes.number.isRequired
   }
 
+  componentDidMount() {
+    ReactDOM.findDOMNode(this._input).focus();
+  }
+
   componentDidUpdate(prevProps) {
     if (prevProps.journalSize < this.props.journalSize && this._input) {
       this._input.style = '';
