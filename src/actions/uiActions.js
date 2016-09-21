@@ -1,6 +1,6 @@
 import { UI_NS, ADD_MEETING, ADD_MOOD, ADD_NOTE,
          HIDE_NOTIFICATION,
-         OPEN_PROFILE, CLOSE_PROFILE, CLOSE_FRIENDS, OPEN_FRIENDS, CLOSE_SETTINGS, OPEN_SETTINGS
+         OPEN_PROFILE, CLOSE_PROFILE, CLOSE_FRIENDS, OPEN_FRIENDS, CLOSE_SETTINGS, OPEN_SETTINGS, CLOSE_WELCOME
        } from '../actions/const';
 
 export function addMeetingAction(content) {
@@ -95,6 +95,15 @@ export function openSettingsAction() {
   return {
     ns: UI_NS,
     type: OPEN_SETTINGS,
+    payload: {}
+  };
+};
+
+
+export function closeWelcomeAction() {
+  return {
+    ns: UI_NS,
+    type: CLOSE_WELCOME,
     payload: {}
   };
 };

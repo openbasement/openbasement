@@ -1,6 +1,7 @@
 import { CLOSE_PROFILE, OPEN_PROFILE,
          CLOSE_FRIENDS, OPEN_FRIENDS,
-         CLOSE_SETTINGS, OPEN_SETTINGS } from '../actions/const';
+         CLOSE_SETTINGS, OPEN_SETTINGS,
+         CLOSE_WELCOME } from '../actions/const';
 
 const changeUi = (ui = {}, action) => {
   switch (action.type) {
@@ -16,6 +17,8 @@ const changeUi = (ui = {}, action) => {
       return { ...ui, isSettingsOpened: false };
     case OPEN_SETTINGS:
       return { ...ui, isSettingsOpened: true };
+    case CLOSE_WELCOME:
+      return { ...ui, isWelcomeOpened: false };
     default:
       return ui;
   }

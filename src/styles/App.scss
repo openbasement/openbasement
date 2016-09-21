@@ -42,7 +42,7 @@ a {
 
 $component-indent: 20px;
 $page-width: 950px;
-$min-page-width: 750px;
+$min-page-width: 800px;
 
 .index {
   max-width: $page-width;
@@ -287,6 +287,7 @@ footer {
   @include round-corners($component-indent/2, 0);
   background: $component-color-3;
   width: 50%;
+  min-width: 0.5 * $min-page-width;
   margin: 15% auto;
   padding: $component-indent;
   position: relative;

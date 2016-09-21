@@ -47,6 +47,20 @@ module.exports = {
   'settings-title': 'Your settings',
   'settings-content': 'We don\'t care enough to provide any settings.',
 
+  // Welcome screen
+
+  'welcome-title': 'Welcome to your Basement!',
+  'welcome-content':
+    '[We know *you* don\'t have *friends* and you suffer each time you look at you FB wall filled with some shit.]' +
+    '[We also know that you don\'t always want to spam everyone with whatever you think, you judgemental bastard.]' +
+    '[But cry no more. Because we created this very special virtual *Basement*.]' +
+    '[It provides you:]' +
+    '[*no registration* - you don\'t have to waste your time registering anywhere! That is because...]' +
+    '[*there are no server calls* - everything you do happens in your browser and is stored locally! That means...]' +
+    '[*no spying or advertising* - any sick thing you write will stay private.]' +
+    '[*markdown and emojione* - so you could write pretty posts that no one else will ever see!]' +
+    '[And finally, *side bar* - which will laugh at you. *Because it can*.]',
+
   // events
 
   'still-alive': 'On {date} you were still alive',

@@ -8,6 +8,7 @@ import T from 'i18n-react';
 import Navigation from '../components/Navigation';
 import SideNotes from '../components/SideNotes';
 import Journal from '../components/Journal';
+import Welcome from '../components/Welcome';
 
 class AppComponent extends React.Component {
   render() {
@@ -26,6 +27,7 @@ class AppComponent extends React.Component {
           <Journal />
         </div>
         <footer>{T.translate('footer')} - <a href="https://github.com/openbasement/openbasement#openbasement">{T.translate('about')}</a></footer>
+        <Welcome />
       </div>
     );
   }
