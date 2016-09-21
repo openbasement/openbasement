@@ -2,7 +2,7 @@ import { applyMiddleware } from 'redux';
 
 import configureStore from '../stores';
 import { initialState } from '../model/state';
-import { persistData, retrieveData } from '../persistence/Persistence';
+import { persistData, retrieveData } from '../persistence/persistence';
 
 const initialize = initialState => {
   console.log('retrieving data from cache with fallback:', initialState); // eslint-disable-line no-console

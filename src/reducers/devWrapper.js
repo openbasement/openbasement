@@ -1,6 +1,6 @@
 import { RESET_STORE } from '../actions/const';
 import { initialState } from '../model/state';
-import { resetData } from '../persistence/Persistence';
+import { resetData } from '../persistence/persistence';
 
 function resetState() {
   resetData();
