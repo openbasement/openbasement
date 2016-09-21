@@ -1,16 +1,18 @@
 import { connect } from 'react-redux';
 import Modal from 'react-modal';
 import React from 'react';
-import T from 'i18n-react';
+import { I18n } from 'react-redux-i18n';
 
 import { closeWelcomeAction } from '../actions';
+import SetLocale from '../components/SetLocale';
 
 class WelcomeComponent extends React.Component {
   static propTypes = {
     actions: React.PropTypes.shape({
       closeWelcome: React.PropTypes.func.isRequired
     }),
-    isWelcomeOpened: React.PropTypes.bool
+    isWelcomeOpened: React.PropTypes.bool,
+    locale: React.PropTypes.string.isRequired
   }
 
   render() {
@@ -20,9 +22,22 @@ class WelcomeComponent extends React.Component {
       <Modal
           className="modal"
           isOpen={isWelcomeOpened}>
-        <h2>{T.translate('welcome-title')}</h2>
+        <h2>{I18n.t('welcome.title')}</h2>
         <i className="fa fa-close close-modal" onClick={closeWelcome} />
-        <div>{T.translate('welcome-content')}</div>
+        <div>
+          <p>{I18n.t('welcome.content-1')}</p>
+          <p>{I18n.t('welcome.content-2')}</p>
+          <p>{I18n.t('welcome.content-3')}</p>
+          <p>{I18n.t('welcome.content-4')}</p>
+          <ul>
+            <li>{I18n.t('welcome.content-5')}</li>
+            <li>{I18n.t('welcome.content-6')}</li>
+            <li>{I18n.t('welcome.content-7')}</li>
+            <li>{I18n.t('welcome.content-8')}</li>
+            <li>{I18n.t('welcome.content-9')}</li>
+          </ul>
+          <SetLocale />
+        </div>
       </Modal>
     );
   }
@@ -32,12 +47,14 @@ WelcomeComponent.defaultProps = {
   actions: {
     closeWelcome: () => undefined
   },
-  isWelcomeOpened: true
+  isWelcomeOpened: true,
+  locale: ''
 };
 
 function mapStateToProps(state) {
   return {
-    isWelcomeOpened: state.ui.isWelcomeOpened
+    isWelcomeOpened: state.ui.isWelcomeOpened,
+    locale: state.i18n.locale
   };
 }
 

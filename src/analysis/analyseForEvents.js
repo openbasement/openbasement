@@ -1,7 +1,9 @@
 import { addFirstTimeFromDay, sortByTime } from '../analysis/common';
 import { makeEvent } from '../model/analysis';
 
-const stillAliveEvents = journal => journal.reduce(addFirstTimeFromDay, []).map(time => makeEvent('still-alive', time));
+const stillAliveEvents = journal => journal
+  .reduce(addFirstTimeFromDay, [])
+  .map(time => makeEvent('events.stillAlive', time));
 
 const analyseForEvents = journal => [
   ...stillAliveEvents(journal)

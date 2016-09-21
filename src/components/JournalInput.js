@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { emojify } from 'react-emojione';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import T from 'i18n-react';
+import { I18n } from 'react-redux-i18n';
 
 import { addMeetingAction, addMoodAction, addNoteAction } from '../actions';
 import emojioneOptions from '../images/emojioneOptions';
@@ -26,7 +26,8 @@ class JournalInputComponent extends React.Component {
       onAddMood: React.PropTypes.func.isRequired,
       onAddNote: React.PropTypes.func.isRequired
     }),
-    journalSize: React.PropTypes.number.isRequired
+    journalSize: React.PropTypes.number.isRequired,
+    locale: React.PropTypes.string.isRequired
   }
 
   componentDidMount() {
@@ -65,10 +66,10 @@ class JournalInputComponent extends React.Component {
     return (
       <div id="journal-input">
         <textarea onChange={resizeInput} ref={attatchInput} />
-        <div>{T.translate('hint')} <a href="http://emoji.codes/">emojione</a>, <a href="http://commonmark.org/">markdown</a></div>
+        <div>{I18n.t('journal.hint')}: <a href="http://emoji.codes/">emojione</a>, <a href="http://commonmark.org/">markdown</a></div>
         <ul>
-          <li onClick={addNote}><i className="fa fa-sticky-note-o" /> {T.translate('note')}</li>
-          <li onClick={addMeeting}><i className="fa fa-calendar-check-o" /> {T.translate('meeting')}</li>
+          <li onClick={addNote}><i className="fa fa-sticky-note-o" /> {I18n.t('journal.note')}</li>
+          <li onClick={addMeeting}><i className="fa fa-calendar-check-o" /> {I18n.t('journal.meeting')}</li>
           <li onClick={addMood(':smile:')}>{makeEmojiButton(':smile:')}</li>
           <li onClick={addMood(':disappointed:')}>{makeEmojiButton(':disappointed:')}</li>
           <li onClick={addMood(':angry:')}>{makeEmojiButton(':angry:')}</li>
@@ -84,12 +85,14 @@ JournalInputComponent.defaultProps = {
     onAddMood: () => undefined,
     onAddNote: () => undefined
   },
-  journalSize: 0
+  journalSize: 0,
+  locale: ''
 };
 
 function mapStateToProps(state) {
   return {
-    journalSize: state.journal.length
+    journalSize: state.journal.length,
+    locale: state.i18n.locale
   };
 }
 

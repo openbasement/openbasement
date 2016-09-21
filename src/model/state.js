@@ -3,7 +3,8 @@ export const initialState = {
   events: [],
   interactions: {},
   notifications: [],
-  ui: {}
+  ui: {},
+  i18n: { locale: 'en' }
 };
 
 export const updateJournal = journal => entry => [...journal, entry];

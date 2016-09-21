@@ -3,7 +3,7 @@ import '../styles/App.scss';
 
 import { connect } from 'react-redux';
 import React from 'react';
-import T from 'i18n-react';
+import { I18n } from 'react-redux-i18n';
 
 import Navigation from '../components/Navigation';
 import SideNotes from '../components/SideNotes';
@@ -11,14 +11,18 @@ import Journal from '../components/Journal';
 import Welcome from '../components/Welcome';
 
 class AppComponent extends React.Component {
+  static propTypes = {
+    locale: React.PropTypes.string.isRequired
+  };
+
   render() {
     return (
       <div className="index">
         <header>
           <div className="wrapper">
             <img src="images/logo.svg" />
-            <T.text tag="h1" text="title"/>
-            <T.text tag="h2" text="subtitle"/>
+            <h1>{I18n.t('page.title')}</h1>
+            <h2>{I18n.t('page.subtitle')}</h2>
           </div>
         </header>
         <Navigation />
@@ -26,7 +30,7 @@ class AppComponent extends React.Component {
           <SideNotes />
           <Journal />
         </div>
-        <footer>{T.translate('footer')} - <a href="https://github.com/openbasement/openbasement#openbasement">{T.translate('about')}</a></footer>
+        <footer>{I18n.t('page.footer')} - <a href="https://github.com/openbasement/openbasement#openbasement">{I18n.t('page.about')}</a></footer>
         <Welcome />
       </div>
     );
@@ -34,11 +38,14 @@ class AppComponent extends React.Component {
 }
 
 AppComponent.defaultProps = {
-  actions: {}
+  actions: {},
+  locale: ''
 };
 
-function mapStateToProps() {
-  return {};
+function mapStateToProps(state) {
+  return {
+    locale: state.i18n.locale
+  };
 }
 
 function mapDispatchToProps() {

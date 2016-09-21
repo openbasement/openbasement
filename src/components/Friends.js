@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import Modal from 'react-modal';
 import React from 'react';
-import T from 'i18n-react';
+import { I18n } from 'react-redux-i18n';
 
 import { openFriendsAction, closeFriendsAction } from '../actions';
 
@@ -11,7 +11,8 @@ class FriendsComponent extends React.Component {
       closeFriends: React.PropTypes.func.isRequired,
       openFriends: React.PropTypes.func.isRequired
     }),
-    isFriendsOpened: React.PropTypes.bool
+    isFriendsOpened: React.PropTypes.bool,
+    locale: React.PropTypes.string.isRequired
   }
 
   render() {
@@ -19,13 +20,13 @@ class FriendsComponent extends React.Component {
     const { closeFriends, openFriends } = this.props.actions;
     return (
       <li>
-        <T.a onClick={openFriends} text="Friends" />
+        <a onClick={openFriends}>{I18n.t('friends.menu')}</a>
         <Modal
             className="modal"
             isOpen={isFriendsOpened}>
-          <h2>{T.translate('friends-title')}</h2>
+          <h2>{I18n.t('friends.title')}</h2>
           <i className="fa fa-close close-modal" onClick={closeFriends} />
-          <div>{T.translate('friends-content')}</div>
+          <div>{I18n.t('friends.content')}</div>
         </Modal>
       </li>
     );
@@ -37,12 +38,14 @@ FriendsComponent.defaultProps = {
     closeFriends: () => undefined,
     openFriends: () => undefined
   },
-  isFriendsOpened: false
+  isFriendsOpened: false,
+  locale: ''
 };
 
 function mapStateToProps(state) {
   return {
-    isFriendsOpened: state.ui.isFriendsOpened
+    isFriendsOpened: state.ui.isFriendsOpened,
+    locale: state.i18n.locale
   };
 }
 

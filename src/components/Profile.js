@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import Modal from 'react-modal';
 import React from 'react';
-import T from 'i18n-react';
+import { I18n } from 'react-redux-i18n';
 
 import { openProfileAction, closeProfileAction } from '../actions';
 
@@ -11,7 +11,8 @@ class ProfileComponent extends React.Component {
       closeProfile: React.PropTypes.func.isRequired,
       openProfile: React.PropTypes.func.isRequired
     }),
-    isProfileOpened: React.PropTypes.bool
+    isProfileOpened: React.PropTypes.bool,
+    locale: React.PropTypes.string.isRequired
   }
 
   render() {
@@ -19,13 +20,13 @@ class ProfileComponent extends React.Component {
     const { closeProfile, openProfile } = this.props.actions;
     return (
       <li>
-        <T.a onClick={openProfile} text="Profile" />
+        <a onClick={openProfile}>{I18n.t('profile.menu')}</a>
         <Modal
             className="modal"
             isOpen={isProfileOpened}>
-          <h2>{T.translate('profile-title')}</h2>
+          <h2>{I18n.t('profile.title')}</h2>
           <i className="fa fa-close close-modal" onClick={closeProfile} />
-          <div>{T.translate('profile-content')}</div>
+          <div>{I18n.t('profile.content')}</div>
         </Modal>
       </li>
     );
@@ -37,12 +38,14 @@ ProfileComponent.defaultProps = {
     closeProfile: () => undefined,
     openProfile: () => undefined
   },
-  isProfileOpened: false
+  isProfileOpened: false,
+  locale: ''
 };
 
 function mapStateToProps(state) {
   return {
-    isProfileOpened: state.ui.isProfileOpened
+    isProfileOpened: state.ui.isProfileOpened,
+    locale: state.i18n.locale
   };
 }
 

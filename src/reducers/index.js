@@ -1,4 +1,5 @@
 import { combineReducers } from 'redux';
+import { i18nReducer } from 'react-redux-i18n';
 
 import addEntry from '../reducers/addEntry';
 import changeUi from '../reducers/changeUi';
@@ -13,7 +14,8 @@ const reducers = {
   events: noop([]),
   interactions: noop({}),
   notifications: hideNotification,
-  ui: changeUi
+  ui: changeUi,
+  i18n: i18nReducer
 };
 const combinedReducers = combineReducers(reducers);
 const enhancedReducer = updateAfterAnalyse(combinedReducers);

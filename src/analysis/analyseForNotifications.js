@@ -4,16 +4,16 @@ import { MOOD } from '../model/const';
 
 const nthEntry = (journal, n, content) => journal.length > n ? [makeNotification(content, journal[n - 1].time)] : [];
 const nthEntryEvents = journal => [
-  ...nthEntry(journal, 1, 'entry-1'),
-  ...nthEntry(journal, 2, 'entry-2'),
-  ...nthEntry(journal, 5, 'entry-5'),
-  ...nthEntry(journal, 10, 'entry-10'),
-  ...nthEntry(journal, 20, 'entry-20'),
-  ...nthEntry(journal, 50, 'entry-50'),
-  ...nthEntry(journal, 100, 'entry-100'),
-  ...nthEntry(journal, 200, 'entry-200'),
-  ...nthEntry(journal, 500, 'entry-500'),
-  ...nthEntry(journal, 1000, 'entry-1000')
+  ...nthEntry(journal, 1, 'notifications.1th-entry'),
+  ...nthEntry(journal, 2, 'notifications.2th-entry'),
+  ...nthEntry(journal, 5, 'notifications.5th-entry'),
+  ...nthEntry(journal, 10, 'notifications.10th-entry'),
+  ...nthEntry(journal, 20, 'notifications.20th-entry'),
+  ...nthEntry(journal, 50, 'notifications.50th-entry'),
+  ...nthEntry(journal, 100, 'notifications.100th-entry'),
+  ...nthEntry(journal, 200, 'notifications.200th-entry'),
+  ...nthEntry(journal, 500, 'notifications.500th-entry'),
+  ...nthEntry(journal, 1000, 'notifications.1000th-entry')
 ];
 
 const moodyDayEvents = journal => {
@@ -26,7 +26,7 @@ const moodyDayEvents = journal => {
         .filter(mood => mood.mood !== entry.mood);
     return earlierSameDayDifferentMood.length > 0 ? [...times, entry.time] : times;
   };
-  return moods.reduce(moodyDay, []).map(time => makeNotification('moody-day', time));
+  return moods.reduce(moodyDay, []).map(time => makeNotification('notifications.moody-day', time));
 };
 
 const analyseForNotifications = journal => [

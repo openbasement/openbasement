@@ -1,10 +1,11 @@
 import { connect } from 'react-redux';
 import React from 'react';
-import T from 'i18n-react';
+import { I18n } from 'react-redux-i18n';
 
 class InteractionsComponent extends React.Component {
   static propTypes = {
-    interactions: React.PropTypes.object.isRequired
+    interactions: React.PropTypes.object.isRequired,
+    locale: React.PropTypes.string.isRequired
   }
 
   makeIntaraction(interaction) {
@@ -16,11 +17,11 @@ class InteractionsComponent extends React.Component {
 
     if (interactions.lastMeeting) {
       const time = this.showDate(interactions.lastMeeting.content);
-      elements.push({ ...interactions.lastMeeting, content: T.translate('last-meeting', { time: time }) });
+      elements.push({ ...interactions.lastMeeting, content: I18n.t('interactions.last-meeting', { time: time }) });
     }
     if (interactions.meetingsTotal) {
       const total = interactions.meetingsTotal.content;
-      elements.push({ ...interactions.meetingsTotal, content: T.translate('meetings-total', { total: total }) });
+      elements.push({ ...interactions.meetingsTotal, content: I18n.t('interactions.meetings-total', { total: total }) });
     }
 
     return elements;
@@ -35,8 +36,8 @@ class InteractionsComponent extends React.Component {
     const interactions = this.makeInteractions(this.props.interactions);
     return (
       <section id="interactions">
-        <h3><i className="fa fa-group" /> {T.translate('Interactions')}</h3>
-        {interactions.length > 0 ? interactions.map(this.makeIntaraction) : <T.div text="no-interactions" />}
+        <h3><i className="fa fa-group" /> {I18n.t('interactions.title')}</h3>
+        {interactions.length > 0 ? interactions.map(this.makeIntaraction) : <div>{I18n.t('interactions.empty')}</div>}
       </section>
     );
   }
@@ -44,12 +45,14 @@ class InteractionsComponent extends React.Component {
 
 InteractionsComponent.defaultProps = {
   actions: {},
-  interactions: {}
+  interactions: {},
+  locale: ''
 };
 
 function mapStateToProps(state) {
   return {
-    interactions: { ...state.interactions }
+    interactions: { ...state.interactions },
+    locale: state.i18n.locale
   };
 }
 
