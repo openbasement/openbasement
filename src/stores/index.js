@@ -1,8 +1,8 @@
+import { createStore } from 'redux';
 import reducers from '../reducers';
 
 module.exports = function(initialState, middleware) {
-  const Redux = require('redux');
-  const store = Redux.createStore(reducers, initialState, middleware);
+  const store = createStore(reducers, initialState, middleware);
 
   if (module.hot) {
     // Enable Webpack hot module replacement for reducers
