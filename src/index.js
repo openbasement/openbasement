@@ -5,7 +5,7 @@ import { Provider } from 'react-redux';
 import T from 'i18n-react';
 import hljs from 'highlight.js';
 
-import PersistentStore from './persistence/PersistentStore';
+import createPersistentStore from './persistent-stores';
 import { RESET_STORE } from './actions/const';
 import locale from './i18n/locales/en-US';
 import App from './containers/App';
@@ -15,11 +15,9 @@ Modal.defaultStyles = {
   content: {}
 };
 
-const store = PersistentStore();
+const store = createPersistentStore();
 
-window.resetState = () => {
-  store.dispatch({ type: RESET_STORE });
-};
+window.resetState = () => store.dispatch({ type: RESET_STORE });
 
 T.setTexts(locale);
 

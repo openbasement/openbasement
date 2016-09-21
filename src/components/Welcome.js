@@ -3,7 +3,7 @@ import Modal from 'react-modal';
 import React from 'react';
 import T from 'i18n-react';
 
-import { closeWelcomeAction } from '../actions/uiActions';
+import { closeWelcomeAction } from '../actions';
 
 class WelcomeComponent extends React.Component {
   static propTypes = {

@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import React from 'react';
 import T from 'i18n-react';
 
-import { hideNotificationAction } from '../actions/uiActions';
+import { hideNotificationAction } from '../actions';
 
 class NotificationsComponent extends React.Component {
   static propTypes = {

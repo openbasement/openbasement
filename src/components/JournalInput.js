@@ -5,7 +5,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import T from 'i18n-react';
 
-import { addMeetingAction, addMoodAction, addNoteAction } from '../actions/uiActions';
+import { addMeetingAction, addMoodAction, addNoteAction } from '../actions';
 import emojioneOptions from '../images/emojioneOptions';
 
 const menuEmoijiOptions = {

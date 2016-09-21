@@ -2,7 +2,7 @@ import { applyMiddleware } from 'redux';
 
 import configureStore from '../stores';
 import { initialState } from '../model/state';
-import { persistData, retrieveData } from '../persistence/persistence';
+import { persistData, retrieveData } from '../persistent-stores/persistence';
 
 const initialize = initialState => {
   console.log('retrieving data from cache with fallback:', initialState); // eslint-disable-line no-console
@@ -20,6 +20,4 @@ const middleware = store => next => action => {
   return result;
 };
 
-const PersistentStore = () => configureStore(initialize(initialState), applyMiddleware(middleware));
-
-export default PersistentStore;
+module.exports = () => configureStore(initialize(initialState), applyMiddleware(middleware));

@@ -3,7 +3,7 @@ import Modal from 'react-modal';
 import React from 'react';
 import T from 'i18n-react';
 
-import { openProfileAction, closeProfileAction } from '../actions/uiActions';
+import { openProfileAction, closeProfileAction } from '../actions';
 
 class ProfileComponent extends React.Component {
   static propTypes = {

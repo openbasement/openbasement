@@ -12,6 +12,6 @@ const findInteractions = meetings => meetings.length === 0 ? emptyInteractions :
   meetingsTotal: makeInteraction(meetings.length, 1)
 });
 
-const interactionAnalysis = journal => findInteractions(journal.filter(entry => entry.type === MEETING));
+const analyseForInteractions = journal => findInteractions(journal.filter(entry => entry.type === MEETING));
 
-export default interactionAnalysis;
+export default analyseForInteractions;

@@ -3,7 +3,7 @@ import Modal from 'react-modal';
 import React from 'react';
 import T from 'i18n-react';
 
-import { openSettingsAction, closeSettingsAction } from '../actions/uiActions';
+import { openSettingsAction, closeSettingsAction } from '../actions';
 
 class SettingsComponent extends React.Component {
   static propTypes = {

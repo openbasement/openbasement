@@ -29,9 +29,9 @@ const moodyDayEvents = journal => {
   return moods.reduce(moodyDay, []).map(time => makeNotification('moody-day', time));
 };
 
-const notificationAnalysis = journal => [
+const analyseForNotifications = journal => [
   ...nthEntryEvents(journal),
   ...moodyDayEvents(journal)
 ].sort(sortByTime);
 
-export default notificationAnalysis;
+export default analyseForNotifications;
