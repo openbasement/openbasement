@@ -4,7 +4,7 @@ import React from 'react';
 import { I18n } from 'react-redux-i18n';
 
 import { openSettingsAction, closeSettingsAction } from '../actions';
-import SetLocale from '../components/SetLocale';
+import SetLocale from './SetLocale';
 
 class SettingsComponent extends React.Component {
   static propTypes = {

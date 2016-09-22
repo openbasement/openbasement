@@ -1,11 +1,11 @@
 import { combineReducers } from 'redux';
 import { i18nReducer } from 'react-redux-i18n';
 
-import addEntry from '../reducers/addEntry';
-import changeUi from '../reducers/changeUi';
-import hideNotification from '../reducers/hideNotification';
-import updateAfterAnalyse from '../reducers/updateAfterAnalyse';
-import devWrapper from '../reducers/devWrapper';
+import addEntry from './addEntry';
+import changeUi from './changeUi';
+import hideNotification from './hideNotification';
+import updateAfterAnalyse from './updateAfterAnalyse';
+import devWrapper from './devWrapper';
 
 const noop = empty => state => state || empty;
 

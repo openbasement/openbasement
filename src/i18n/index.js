@@ -1,5 +1,5 @@
-import en from '../i18n/locales/en';
-import pl from '../i18n/locales/pl';
+import en from './locales/en';
+import pl from './locales/pl';
 
 module.exports = {
   en: en,

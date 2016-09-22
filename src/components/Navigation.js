@@ -1,9 +1,9 @@
 import { connect } from 'react-redux';
 import React from 'react';
 
-import Profile from '../components/Profile';
-import Friends from '../components/Friends';
-import Settings from '../components/Settings';
+import Profile from './Profile';
+import Friends from './Friends';
+import Settings from './Settings';
 
 class NavigationComponent extends React.Component {
   render() {

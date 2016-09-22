@@ -1,8 +1,8 @@
 import { connect } from 'react-redux';
 import React from 'react';
 
-import JournalEntryContent from '../components/JournalEntryContent';
-import JournalEntryTime from '../components/JournalEntryTime';
+import JournalEntryContent from './JournalEntryContent';
+import JournalEntryTime from './JournalEntryTime';
 
 class MeetingComponent extends React.Component {
   static propTypes = {

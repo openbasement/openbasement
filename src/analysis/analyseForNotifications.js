@@ -1,4 +1,4 @@
-import { asDay, sortByTime } from '../analysis/common';
+import { asDay, sortByTime } from './common';
 import { makeNotification } from '../model/analysis';
 import { MOOD } from '../model/const';
 

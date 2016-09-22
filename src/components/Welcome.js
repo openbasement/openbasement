@@ -4,7 +4,7 @@ import React from 'react';
 import { I18n } from 'react-redux-i18n';
 
 import { closeWelcomeAction } from '../actions';
-import SetLocale from '../components/SetLocale';
+import SetLocale from './SetLocale';
 
 class WelcomeComponent extends React.Component {
   static propTypes = {

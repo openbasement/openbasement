@@ -1,6 +1,6 @@
-import analyseForEvents from '../analysis/analyseForEvents';
-import analyseForInteractions from '../analysis/analyseForInteractions';
-import analyseForNotifications from '../analysis/analyseForNotifications';
+import analyseForEvents from './analyseForEvents';
+import analyseForInteractions from './analyseForInteractions';
+import analyseForNotifications from './analyseForNotifications';
 
 module.exports = journal => ({
   events: analyseForEvents(journal),

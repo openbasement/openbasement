@@ -1,4 +1,4 @@
-import { addFirstTimeFromDay, sortByTime } from '../analysis/common';
+import { addFirstTimeFromDay, sortByTime } from './common';
 import { makeEvent } from '../model/analysis';
 
 const stillAliveEvents = journal => journal

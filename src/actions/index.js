@@ -2,7 +2,7 @@ import { UI_NS, ADD_MEETING, ADD_MOOD, ADD_NOTE,
          HIDE_NOTIFICATION,
          OPEN_PROFILE, CLOSE_PROFILE, CLOSE_FRIENDS, OPEN_FRIENDS, CLOSE_SETTINGS, OPEN_SETTINGS, CLOSE_WELCOME,
          RESET_STORE
-       } from '../actions/const';
+       } from './const';
 
 const now = () => new Date().toISOString();
 

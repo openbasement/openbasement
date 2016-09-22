@@ -5,10 +5,10 @@ import { connect } from 'react-redux';
 import React from 'react';
 import { I18n } from 'react-redux-i18n';
 
-import Navigation from '../components/Navigation';
-import SideNotes from '../components/SideNotes';
-import Journal from '../components/Journal';
-import Welcome from '../components/Welcome';
+import Navigation from './Navigation';
+import SideNotes from './SideNotes';
+import Journal from './Journal';
+import Welcome from './Welcome';
 
 class AppComponent extends React.Component {
   static propTypes = {

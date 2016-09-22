@@ -2,10 +2,10 @@ import { connect } from 'react-redux';
 import React from 'react';
 
 import { MEETING, MOOD, NOTE } from '../model/const';
-import JournalInput from '../components/JournalInput';
-import Meeting from '../components/Meeting';
-import Mood from '../components/Mood';
-import Note from '../components/Note';
+import JournalInput from './JournalInput';
+import Meeting from './Meeting';
+import Mood from './Mood';
+import Note from './Note';
 
 class JournalComponent extends React.Component {
   static propTypes = {

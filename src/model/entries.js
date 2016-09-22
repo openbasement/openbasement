@@ -1,4 +1,4 @@
-import { MEETING, MOOD, NOTE } from '../model/const';
+import { MEETING, MOOD, NOTE } from './const';
 
 export const makeMeeting = (data, id) => {
   const { content, time } = data;
