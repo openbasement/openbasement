@@ -272,18 +272,18 @@ footer {
   background: $component-color-3;
   width: 75%;
   min-width: 0.5 * $min-page-width;
-  margin: 10% auto;
+  margin: 5% auto;
   padding: $component-indent;
   position: relative;
 
-  h2 {
+  > h2 {
     color: $text-color-4;
     font-family: $elegant-font;
     margin-top: 0;
     text-shadow: 1px 1px $component-color-4;
   }
 
-  .close-modal {
+  > .close-modal {
     color: $text-color-4;
     font-size: 15pt;
     position: absolute;
@@ -291,11 +291,12 @@ footer {
     right: $component-indent;
   }
 
-  div {
+  > div {
     @include round-corners($component-indent/2, 0);
     background: $std-background-color;
     font-family: $casual-font;
     font-size: 14pt;
+    overflow: auto;
     padding: $component-indent;
   }
 }
@@ -345,7 +346,6 @@ aside#side-notes {
     }
   }
 }
-
 } // @media (min-width: 800px)
 
 @media (max-width: 799px) {
@@ -373,5 +373,20 @@ nav#navigation {
     }
   }
 }
-
 } // @media (max-width: 799px)
+
+@media (min-height: 700px) {
+.modal > div { max-height: 540px; }
+}
+@media (max-height: 700px) and (min-height: 600px) {
+.modal > div { max-height: 440px; }
+}
+@media (max-height: 600px) and (min-height: 500px) {
+.modal > div { max-height: 340px; }
+}
+@media (max-height: 500px) and (min-height: 400px) {
+.modal > div { max-height: 240px; }
+}
+@media (max-height: 400px) {
+.modal > div { max-height: 140px; }
+}
