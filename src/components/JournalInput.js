@@ -79,16 +79,6 @@ class JournalInputComponent extends React.Component {
   }
 }
 
-JournalInputComponent.defaultProps = {
-  actions: {
-    onAddMeetings: () => undefined,
-    onAddMood: () => undefined,
-    onAddNote: () => undefined
-  },
-  journalSize: 0,
-  locale: ''
-};
-
 function mapStateToProps(state) {
   return {
     journalSize: state.journal.length,

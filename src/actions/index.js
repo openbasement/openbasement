@@ -114,3 +114,20 @@ export function resetStoreAction() {
     payload: {}
   };
 };
+
+const actions = {
+  addMeeting: addMeetingAction,
+  addMood: addMoodAction,
+  addNote: addNoteAction,
+  hideNotification: hideNotificationAction,
+  closeProfile: closeProfileAction,
+  openProfile: openProfileAction,
+  closeFriends: closeFriendsAction,
+  openFriends: openFriendsAction,
+  closeSettings: closeSettingsAction,
+  openSettings: openSettingsAction,
+  closeWelcome: closeWelcomeAction,
+  resetStore: resetStoreAction
+};
+
+export default actions;

@@ -37,15 +37,6 @@ class SettingsComponent extends React.Component {
   }
 }
 
-SettingsComponent.defaultProps = {
-  actions: {
-    closeSettings: () => undefined,
-    openSettings: () => undefined
-  },
-  isSettingsOpened: false,
-  locale: ''
-};
-
 function mapStateToProps(state) {
   return {
     isSettingsOpened: state.ui.isSettingsOpened,

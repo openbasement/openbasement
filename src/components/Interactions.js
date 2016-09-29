@@ -43,12 +43,6 @@ class InteractionsComponent extends React.Component {
   }
 }
 
-InteractionsComponent.defaultProps = {
-  actions: {},
-  interactions: {},
-  locale: ''
-};
-
 function mapStateToProps(state) {
   return {
     interactions: { ...state.interactions },

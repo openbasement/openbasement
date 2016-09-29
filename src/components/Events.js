@@ -24,12 +24,6 @@ class EventsComponent extends React.Component {
   }
 }
 
-EventsComponent.defaultProps = {
-  actions: {},
-  events: [],
-  locale: ''
-};
-
 function mapStateToProps(state) {
   return {
     events: [...state.events],

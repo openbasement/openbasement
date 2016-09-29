@@ -25,11 +25,6 @@ class JournalEntryContentComponent extends React.Component {
   }
 }
 
-JournalEntryContentComponent.defaultProps = {
-  actions: {},
-  content: ''
-};
-
 function mapStateToProps() {
   return {};
 }

@@ -33,15 +33,6 @@ class FriendsComponent extends React.Component {
   }
 }
 
-FriendsComponent.defaultProps = {
-  actions: {
-    closeFriends: () => undefined,
-    openFriends: () => undefined
-  },
-  isFriendsOpened: false,
-  locale: ''
-};
-
 function mapStateToProps(state) {
   return {
     isFriendsOpened: state.ui.isFriendsOpened,

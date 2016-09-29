@@ -24,15 +24,6 @@ class MeetingComponent extends React.Component {
   }
 }
 
-MeetingComponent.defaultProps = {
-  actions: {},
-  meeting: {
-    content: '',
-    id: 0,
-    time: ''
-  }
-};
-
 function mapStateToProps(state, props) {
   const journal = state.journal;
   const id = props.meeting.id;

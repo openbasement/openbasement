@@ -33,15 +33,6 @@ class ProfileComponent extends React.Component {
   }
 }
 
-ProfileComponent.defaultProps = {
-  actions: {
-    closeProfile: () => undefined,
-    openProfile: () => undefined
-  },
-  isProfileOpened: false,
-  locale: ''
-};
-
 function mapStateToProps(state) {
   return {
     isProfileOpened: state.ui.isProfileOpened,

@@ -24,15 +24,6 @@ class NoteComponent extends React.Component {
   }
 }
 
-NoteComponent.defaultProps = {
-  actions: {},
-  note: {
-    content: '',
-    id: 0,
-    time: ''
-  }
-};
-
 function mapStateToProps(state, props) {
   const journal = state.journal;
   const id = props.note.id;

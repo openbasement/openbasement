@@ -34,13 +34,6 @@ class JournalEntryTimeComponent extends React.Component {
   }
 }
 
-JournalEntryTimeComponent.defaultProps = {
-  actions: {},
-  content: '',
-  shouldEmojify: false,
-  time: ''
-};
-
 function mapStateToProps() {
   return {};
 }

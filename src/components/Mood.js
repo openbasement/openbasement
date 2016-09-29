@@ -26,16 +26,6 @@ class MoodComponent extends React.Component {
   }
 }
 
-MoodComponent.defaultProps = {
-  actions: {},
-  mood: {
-    content: '',
-    mood: '',
-    id: 0,
-    time: ''
-  }
-};
-
 function mapStateToProps(state, props) {
   const journal = state.journal;
   const id = props.mood.id;

@@ -40,11 +40,6 @@ class JournalComponent extends React.Component {
   }
 }
 
-JournalComponent.defaultProps = {
-  actions: {},
-  journal: []
-};
-
 function mapStateToProps(state) {
   const journal = [...state.journal].reverse();
   return {

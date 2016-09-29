@@ -35,14 +35,6 @@ class NotificationsComponent extends React.Component {
   }
 }
 
-NotificationsComponent.defaultProps = {
-  actions: {
-    hideNotification: () => undefined
-  },
-  locale: '',
-  notifications: []
-};
-
 function mapStateToProps(state) {
   return {
     locale: state.i18n.locale,

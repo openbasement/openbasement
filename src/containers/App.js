@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+import actions from '../actions';
 
 import Main from '../components/Main';
 
@@ -22,7 +23,6 @@ function mapStateToProps() {
 }
 
 function mapDispatchToProps(dispatch) {
-  const actions = {};
   return {
     actions: bindActionCreators(actions, dispatch)
   };

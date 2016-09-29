@@ -37,11 +37,6 @@ class AppComponent extends React.Component {
   }
 }
 
-AppComponent.defaultProps = {
-  actions: {},
-  locale: ''
-};
-
 function mapStateToProps(state) {
   return {
     locale: state.i18n.locale

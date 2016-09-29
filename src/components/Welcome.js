@@ -43,14 +43,6 @@ class WelcomeComponent extends React.Component {
   }
 }
 
-WelcomeComponent.defaultProps = {
-  actions: {
-    closeWelcome: () => undefined
-  },
-  isWelcomeOpened: true,
-  locale: ''
-};
-
 function mapStateToProps(state) {
   return {
     isWelcomeOpened: state.ui.isWelcomeOpened,

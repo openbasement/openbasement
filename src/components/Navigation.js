@@ -19,10 +19,6 @@ class NavigationComponent extends React.Component {
   }
 }
 
-NavigationComponent.defaultProps = {
-  actions: {}
-};
-
 function mapStateToProps() {
   return {};
 }

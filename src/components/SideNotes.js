@@ -17,10 +17,6 @@ class SideNotesComponent extends React.Component {
   }
 }
 
-SideNotesComponent.defaultProps = {
-  actions: {}
-};
-
 function mapStateToProps() {
   return {};
 }

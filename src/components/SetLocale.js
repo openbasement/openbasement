@@ -22,14 +22,6 @@ class SetLocaleComponent extends React.Component {
   }
 }
 
-SetLocaleComponent.defaultProps = {
-  actions: {
-    setLocaleTo: () => undefined
-  },
-  isSettingsOpened: false,
-  locale: ''
-};
-
 function mapStateToProps(state) {
   return {
     locale: state.i18n.locale
