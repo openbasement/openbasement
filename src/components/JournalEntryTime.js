@@ -15,6 +15,8 @@ const entryEmoijiOptions = {
   }
 };
 
+const mapStateToProps = () => {};
+
 @connect(mapStateToProps, mapDispatchToProps)
 export default class JournalEntryTimeComponent extends React.Component {
   static propTypes = {
@@ -34,8 +36,4 @@ export default class JournalEntryTimeComponent extends React.Component {
       <div className="date">{shouldEmojify ? emojify(content, entryEmoijiOptions) : content} {this.showDate(time)}</div>
     );
   }
-}
-
-function mapStateToProps() {
-  return {};
 }

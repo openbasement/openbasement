@@ -18,7 +18,7 @@ const changeUi = (ui = {}, action) => {
     case OPEN_SETTINGS:
       return { ...ui, isSettingsOpened: true };
     case CLOSE_WELCOME:
-      return { ...ui, isWelcomeOpened: false };
+      return { ...ui, wasWelcomeOpened: true };
     default:
       return ui;
   }

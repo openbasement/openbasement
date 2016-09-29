@@ -6,6 +6,8 @@ import Notifications from './Notifications';
 import Events from './Events';
 import Interactions from './Interactions';
 
+const mapStateToProps = () => ({});
+
 @connect(mapStateToProps, mapDispatchToProps)
 export default class SideNotesComponent extends React.Component {
   render() {
@@ -17,8 +19,4 @@ export default class SideNotesComponent extends React.Component {
       </aside>
     );
   }
-}
-
-function mapStateToProps() {
-  return {};
 }

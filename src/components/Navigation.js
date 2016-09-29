@@ -6,6 +6,8 @@ import Profile from './Profile';
 import Friends from './Friends';
 import Settings from './Settings';
 
+const mapStateToProps = () => ({});
+
 @connect(mapStateToProps, mapDispatchToProps)
 export default class NavigationComponent extends React.Component {
   render() {
@@ -19,8 +21,4 @@ export default class NavigationComponent extends React.Component {
       </nav>
     );
   }
-}
-
-function mapStateToProps() {
-  return {};
 }

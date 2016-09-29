@@ -6,6 +6,11 @@ import { I18n } from 'react-redux-i18n';
 import mapDispatchToProps from '../actions';
 import SetLocale from './SetLocale';
 
+const mapStateToProps = state => ({
+  isSettingsOpened: state.ui.isSettingsOpened,
+  locale: state.i18n.locale
+});
+
 @connect(mapStateToProps, mapDispatchToProps)
 export default class SettingsComponent extends React.Component {
   static propTypes = {
@@ -36,11 +41,4 @@ export default class SettingsComponent extends React.Component {
       </li>
     );
   }
-}
-
-function mapStateToProps(state) {
-  return {
-    isSettingsOpened: state.ui.isSettingsOpened,
-    locale: state.i18n.locale
-  };
 }

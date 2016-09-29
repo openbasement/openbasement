@@ -5,6 +5,11 @@ import { I18n } from 'react-redux-i18n';
 
 import mapDispatchToProps from '../actions';
 
+const mapStateToProps = state => ({
+  isProfileOpened: state.ui.isProfileOpened,
+  locale: state.i18n.locale
+});
+
 @connect(mapStateToProps, mapDispatchToProps)
 export default class ProfileComponent extends React.Component {
   static propTypes = {
@@ -34,9 +39,3 @@ export default class ProfileComponent extends React.Component {
   }
 }
 
-function mapStateToProps(state) {
-  return {
-    isProfileOpened: state.ui.isProfileOpened,
-    locale: state.i18n.locale
-  };
-}

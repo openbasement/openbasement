@@ -7,6 +7,8 @@ import ReactMarkdown from 'react-markdown';
 
 import mapDispatchToProps from '../actions';
 
+const mapStateToProps = () => {};
+
 @connect(mapStateToProps, mapDispatchToProps)
 export default class JournalEntryContentComponent extends React.Component {
   static propTypes = {
@@ -26,8 +28,4 @@ export default class JournalEntryContentComponent extends React.Component {
       <ReactMarkdown source={emojified} />
     );
   }
-}
-
-function mapStateToProps() {
-  return {};
 }

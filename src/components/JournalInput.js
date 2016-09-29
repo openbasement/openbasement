@@ -19,6 +19,11 @@ const menuEmoijiOptions = {
   }
 };
 
+const mapStateToProps = state => ({
+  journalSize: state.journal.length,
+  locale: state.i18n.locale
+});
+
 @connect(mapStateToProps, mapDispatchToProps)
 export default class JournalInputComponent extends React.Component {
   static propTypes = {
@@ -78,11 +83,4 @@ export default class JournalInputComponent extends React.Component {
       </div>
     );
   }
-}
-
-function mapStateToProps(state) {
-  return {
-    journalSize: state.journal.length,
-    locale: state.i18n.locale
-  };
 }

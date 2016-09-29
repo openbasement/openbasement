@@ -131,7 +131,7 @@ const actions = {
   openSettings: openSettingsAction,
   closeWelcome: closeWelcomeAction,
   resetStore: resetStoreAction,
-  setLocaleTo: setLocale
+  setLocale: setLocale
 };
 
 const makeActions = dispatch => ({ actions: bindActionCreators(actions, dispatch) });

@@ -5,6 +5,14 @@ import mapDispatchToProps from '../actions';
 import JournalEntryContent from './JournalEntryContent';
 import JournalEntryTime from './JournalEntryTime';
 
+function mapStateToProps(state, props) {
+  const journal = state.journal;
+  const id = props.note.id;
+  return {
+    note: journal[id]
+  };
+}
+
 @connect(mapStateToProps, mapDispatchToProps)
 export default class NoteComponent extends React.Component {
   static propTypes = {
@@ -24,13 +32,4 @@ export default class NoteComponent extends React.Component {
       </article>
     );
   }
-}
-
-function mapStateToProps(state, props) {
-  const journal = state.journal;
-  const id = props.note.id;
-  // assert journal[id].id === id
-  return {
-    note: journal[id]
-  };
 }

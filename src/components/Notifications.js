@@ -4,6 +4,11 @@ import { I18n } from 'react-redux-i18n';
 
 import mapDispatchToProps from '../actions';
 
+const mapStateToProps = state => ({
+  locale: state.i18n.locale,
+  notifications: [...state.notifications]
+});
+
 @connect(mapStateToProps, mapDispatchToProps)
 export default class NotificationsComponent extends React.Component {
   static propTypes = {
@@ -34,11 +39,4 @@ export default class NotificationsComponent extends React.Component {
       </section>
     );
   }
-}
-
-function mapStateToProps(state) {
-  return {
-    locale: state.i18n.locale,
-    notifications: [...state.notifications]
-  };
 }

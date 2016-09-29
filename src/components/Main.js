@@ -12,6 +12,10 @@ import Welcome from './Welcome';
 
 import mapDispatchToProps from '../actions';
 
+const mapStateToProps = state => ({
+  locale: state.i18n.locale
+});
+
 @connect(mapStateToProps, mapDispatchToProps)
 export default class AppComponent extends React.Component {
   static propTypes = {
@@ -38,10 +42,4 @@ export default class AppComponent extends React.Component {
       </div>
     );
   }
-}
-
-function mapStateToProps(state) {
-  return {
-    locale: state.i18n.locale
-  };
 }

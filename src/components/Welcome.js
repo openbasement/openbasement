@@ -6,23 +6,29 @@ import { I18n } from 'react-redux-i18n';
 import mapDispatchToProps from '../actions';
 import SetLocale from './SetLocale';
 
+const mapStateToProps = state => ({
+  wasWelcomeClosed: state.ui.wasWelcomeClosed,
+  locale: state.i18n.locale
+});
+
 @connect(mapStateToProps, mapDispatchToProps)
 export default class WelcomeComponent extends React.Component {
   static propTypes = {
     actions: React.PropTypes.shape({
       closeWelcome: React.PropTypes.func.isRequired
     }),
-    isWelcomeOpened: React.PropTypes.bool,
-    locale: React.PropTypes.string.isRequired
+    locale: React.PropTypes.string.isRequired,
+    wasWelcomeClosed: React.PropTypes.bool
   }
 
   render() {
-    const { isWelcomeOpened } = this.props;
+    const { wasWelcomeClosed } = this.props;
     const { closeWelcome } = this.props.actions;
+    console.error('wasWelcomeClosed', wasWelcomeClosed); // eslint-disable-line no-console
     return (
       <Modal
           className="modal"
-          isOpen={isWelcomeOpened}>
+          isOpen={!wasWelcomeClosed}>
         <h2>{I18n.t('welcome.title')}</h2>
         <i className="fa fa-close close-modal" onClick={closeWelcome} />
         <div>
@@ -42,11 +48,4 @@ export default class WelcomeComponent extends React.Component {
       </Modal>
     );
   }
-}
-
-function mapStateToProps(state) {
-  return {
-    isWelcomeOpened: state.ui.isWelcomeOpened,
-    locale: state.i18n.locale
-  };
 }

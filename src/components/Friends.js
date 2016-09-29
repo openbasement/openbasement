@@ -5,6 +5,11 @@ import { I18n } from 'react-redux-i18n';
 
 import mapDispatchToProps from '../actions';
 
+const mapStateToProps = state => ({
+  isFriendsOpened: state.ui.isFriendsOpened,
+  locale: state.i18n.locale
+});
+
 @connect(mapStateToProps, mapDispatchToProps)
 export default class FriendsComponent extends React.Component {
   static propTypes = {
@@ -32,11 +37,4 @@ export default class FriendsComponent extends React.Component {
       </li>
     );
   }
-}
-
-function mapStateToProps(state) {
-  return {
-    isFriendsOpened: state.ui.isFriendsOpened,
-    locale: state.i18n.locale
-  };
 }
