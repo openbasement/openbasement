@@ -2,6 +2,7 @@ import { connect } from 'react-redux';
 import { emojify } from 'react-emojione';
 import React from 'react';
 
+import mapDispatchToProps from '../actions';
 import emojioneOptions from '../images/emojioneOptions';
 
 const entryEmoijiOptions = {
@@ -14,7 +15,8 @@ const entryEmoijiOptions = {
   }
 };
 
-class JournalEntryTimeComponent extends React.Component {
+@connect(mapStateToProps, mapDispatchToProps)
+export default class JournalEntryTimeComponent extends React.Component {
   static propTypes = {
     content: React.PropTypes.any.isRequired,
     shouldEmojify: React.PropTypes.bool,
@@ -37,11 +39,3 @@ class JournalEntryTimeComponent extends React.Component {
 function mapStateToProps() {
   return {};
 }
-
-function mapDispatchToProps() {
-  return {
-    actions: {}
-  };
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(JournalEntryTimeComponent);

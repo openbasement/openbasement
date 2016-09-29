@@ -1,8 +1,11 @@
 import { connect } from 'react-redux';
 import React from 'react';
-import { I18n, setLocale } from 'react-redux-i18n';
+import { I18n } from 'react-redux-i18n';
 
-class SetLocaleComponent extends React.Component {
+import mapDispatchToProps from '../actions';
+
+@connect(mapStateToProps, mapDispatchToProps)
+export default class SetLocaleComponent extends React.Component {
   static propTypes = {
     actions: React.PropTypes.shape({
       setLocaleTo: React.PropTypes.func.isRequired
@@ -27,13 +30,3 @@ function mapStateToProps(state) {
     locale: state.i18n.locale
   };
 }
-
-function mapDispatchToProps(dispatch) {
-  return {
-    actions: {
-      setLocaleTo: locale => () => dispatch(setLocale(locale))
-    }
-  };
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(SetLocaleComponent);

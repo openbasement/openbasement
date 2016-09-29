@@ -1,3 +1,6 @@
+import { bindActionCreators } from 'redux';
+import { setLocale } from 'react-redux-i18n';
+
 import { UI_NS, ADD_MEETING, ADD_MOOD, ADD_NOTE,
          HIDE_NOTIFICATION,
          OPEN_PROFILE, CLOSE_PROFILE, CLOSE_FRIENDS, OPEN_FRIENDS, CLOSE_SETTINGS, OPEN_SETTINGS, CLOSE_WELCOME,
@@ -127,7 +130,10 @@ const actions = {
   closeSettings: closeSettingsAction,
   openSettings: openSettingsAction,
   closeWelcome: closeWelcomeAction,
-  resetStore: resetStoreAction
+  resetStore: resetStoreAction,
+  setLocaleTo: setLocale
 };
 
-export default actions;
+const makeActions = dispatch => ({ actions: bindActionCreators(actions, dispatch) });
+
+export default makeActions;

@@ -10,7 +10,10 @@ import SideNotes from './SideNotes';
 import Journal from './Journal';
 import Welcome from './Welcome';
 
-class AppComponent extends React.Component {
+import mapDispatchToProps from '../actions';
+
+@connect(mapStateToProps, mapDispatchToProps)
+export default class AppComponent extends React.Component {
   static propTypes = {
     locale: React.PropTypes.string.isRequired
   };
@@ -42,11 +45,3 @@ function mapStateToProps(state) {
     locale: state.i18n.locale
   };
 }
-
-function mapDispatchToProps() {
-  return {
-    actions: {}
-  };
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(AppComponent);

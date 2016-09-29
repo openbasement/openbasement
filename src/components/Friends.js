@@ -3,9 +3,10 @@ import Modal from 'react-modal';
 import React from 'react';
 import { I18n } from 'react-redux-i18n';
 
-import { openFriendsAction, closeFriendsAction } from '../actions';
+import mapDispatchToProps from '../actions';
 
-class FriendsComponent extends React.Component {
+@connect(mapStateToProps, mapDispatchToProps)
+export default class FriendsComponent extends React.Component {
   static propTypes = {
     actions: React.PropTypes.shape({
       closeFriends: React.PropTypes.func.isRequired,
@@ -39,14 +40,3 @@ function mapStateToProps(state) {
     locale: state.i18n.locale
   };
 }
-
-function mapDispatchToProps(dispatch) {
-  return {
-    actions: {
-      closeFriends: () => dispatch(closeFriendsAction()),
-      openFriends: () => dispatch(openFriendsAction())
-    }
-  };
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(FriendsComponent);

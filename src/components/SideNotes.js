@@ -1,11 +1,13 @@
 import { connect } from 'react-redux';
 import React from 'react';
 
+import mapDispatchToProps from '../actions';
 import Notifications from './Notifications';
 import Events from './Events';
 import Interactions from './Interactions';
 
-class SideNotesComponent extends React.Component {
+@connect(mapStateToProps, mapDispatchToProps)
+export default class SideNotesComponent extends React.Component {
   render() {
     return (
       <aside id="side-notes">
@@ -20,11 +22,3 @@ class SideNotesComponent extends React.Component {
 function mapStateToProps() {
   return {};
 }
-
-function mapDispatchToProps() {
-  return {
-    actions: {}
-  };
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(SideNotesComponent);

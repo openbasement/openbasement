@@ -5,7 +5,10 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import ReactMarkdown from 'react-markdown';
 
-class JournalEntryContentComponent extends React.Component {
+import mapDispatchToProps from '../actions';
+
+@connect(mapStateToProps, mapDispatchToProps)
+export default class JournalEntryContentComponent extends React.Component {
   static propTypes = {
     content: React.PropTypes.string.isRequired
   }
@@ -28,11 +31,3 @@ class JournalEntryContentComponent extends React.Component {
 function mapStateToProps() {
   return {};
 }
-
-function mapDispatchToProps() {
-  return {
-    actions: {}
-  };
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(JournalEntryContentComponent);

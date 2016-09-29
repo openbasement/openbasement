@@ -5,7 +5,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { I18n } from 'react-redux-i18n';
 
-import { addMeetingAction, addMoodAction, addNoteAction } from '../actions';
+import mapDispatchToProps from '../actions';
 import emojioneOptions from '../images/emojioneOptions';
 
 const menuEmoijiOptions = {
@@ -19,12 +19,13 @@ const menuEmoijiOptions = {
   }
 };
 
-class JournalInputComponent extends React.Component {
+@connect(mapStateToProps, mapDispatchToProps)
+export default class JournalInputComponent extends React.Component {
   static propTypes = {
     actions: React.PropTypes.shape({
-      onAddMeeting: React.PropTypes.func.isRequired,
-      onAddMood: React.PropTypes.func.isRequired,
-      onAddNote: React.PropTypes.func.isRequired
+      addMeeting: React.PropTypes.func.isRequired,
+      addMood: React.PropTypes.func.isRequired,
+      addNote: React.PropTypes.func.isRequired
     }),
     journalSize: React.PropTypes.number.isRequired,
     locale: React.PropTypes.string.isRequired
@@ -42,7 +43,7 @@ class JournalInputComponent extends React.Component {
   }
 
   render() {
-    const { onAddMeeting, onAddMood, onAddNote } = this.props.actions;
+    const { addMeeting, addMood, addNote } = this.props.actions;
 
     const getContent = () => this._input ? this._input.value : '';
     const dispatchIfContent = actionDispatcher => () => {
@@ -51,9 +52,9 @@ class JournalInputComponent extends React.Component {
         actionDispatcher(content);
       }
     };
-    const addMeeting = dispatchIfContent(onAddMeeting);
-    const addMood = (mood) => dispatchIfContent(content => onAddMood(content, mood));
-    const addNote = dispatchIfContent(onAddNote);
+    const addMeetingIfContent = dispatchIfContent(addMeeting);
+    const addMoodIfContent = (mood) => dispatchIfContent(content => addMood(content, mood));
+    const addNoteIfContent = dispatchIfContent(addNote);
 
     const makeEmojiButton = (name) => emojify(name, menuEmoijiOptions);
 
@@ -68,11 +69,11 @@ class JournalInputComponent extends React.Component {
         <textarea onChange={resizeInput} ref={attatchInput} />
         <div>{I18n.t('journal.hint')}: <a href="http://emoji.codes/">emojione</a>, <a href="http://commonmark.org/">markdown</a></div>
         <ul>
-          <li onClick={addNote}><i className="fa fa-sticky-note-o" /> {I18n.t('journal.note')}</li>
-          <li onClick={addMeeting}><i className="fa fa-calendar-check-o" /> {I18n.t('journal.meeting')}</li>
-          <li onClick={addMood(':smile:')}>{makeEmojiButton(':smile:')}</li>
-          <li onClick={addMood(':disappointed:')}>{makeEmojiButton(':disappointed:')}</li>
-          <li onClick={addMood(':angry:')}>{makeEmojiButton(':angry:')}</li>
+          <li onClick={addNoteIfContent}><i className="fa fa-sticky-note-o" /> {I18n.t('journal.note')}</li>
+          <li onClick={addMeetingIfContent}><i className="fa fa-calendar-check-o" /> {I18n.t('journal.meeting')}</li>
+          <li onClick={addMoodIfContent(':smile:')}>{makeEmojiButton(':smile:')}</li>
+          <li onClick={addMoodIfContent(':disappointed:')}>{makeEmojiButton(':disappointed:')}</li>
+          <li onClick={addMoodIfContent(':angry:')}>{makeEmojiButton(':angry:')}</li>
         </ul>
       </div>
     );
@@ -85,15 +86,3 @@ function mapStateToProps(state) {
     locale: state.i18n.locale
   };
 }
-
-function mapDispatchToProps(dispatch) {
-  return {
-    actions: {
-      onAddMeeting: (content) => dispatch(addMeetingAction(content)),
-      onAddMood: (content, mood) => dispatch(addMoodAction(content, mood)),
-      onAddNote: (content) => dispatch(addNoteAction(content))
-    }
-  };
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(JournalInputComponent);

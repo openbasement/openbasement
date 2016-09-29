@@ -3,10 +3,11 @@ import Modal from 'react-modal';
 import React from 'react';
 import { I18n } from 'react-redux-i18n';
 
-import { closeWelcomeAction } from '../actions';
+import mapDispatchToProps from '../actions';
 import SetLocale from './SetLocale';
 
-class WelcomeComponent extends React.Component {
+@connect(mapStateToProps, mapDispatchToProps)
+export default class WelcomeComponent extends React.Component {
   static propTypes = {
     actions: React.PropTypes.shape({
       closeWelcome: React.PropTypes.func.isRequired
@@ -49,13 +50,3 @@ function mapStateToProps(state) {
     locale: state.i18n.locale
   };
 }
-
-function mapDispatchToProps(dispatch) {
-  return {
-    actions: {
-      closeWelcome: () => dispatch(closeWelcomeAction())
-    }
-  };
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(WelcomeComponent);

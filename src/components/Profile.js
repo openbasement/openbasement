@@ -3,9 +3,10 @@ import Modal from 'react-modal';
 import React from 'react';
 import { I18n } from 'react-redux-i18n';
 
-import { openProfileAction, closeProfileAction } from '../actions';
+import mapDispatchToProps from '../actions';
 
-class ProfileComponent extends React.Component {
+@connect(mapStateToProps, mapDispatchToProps)
+export default class ProfileComponent extends React.Component {
   static propTypes = {
     actions: React.PropTypes.shape({
       closeProfile: React.PropTypes.func.isRequired,
@@ -39,14 +40,3 @@ function mapStateToProps(state) {
     locale: state.i18n.locale
   };
 }
-
-function mapDispatchToProps(dispatch) {
-  return {
-    actions: {
-      closeProfile: () => dispatch(closeProfileAction()),
-      openProfile: () => dispatch(openProfileAction())
-    }
-  };
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(ProfileComponent);

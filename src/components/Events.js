@@ -2,7 +2,10 @@ import { connect } from 'react-redux';
 import React from 'react';
 import { I18n } from 'react-redux-i18n';
 
-class EventsComponent extends React.Component {
+import mapDispatchToProps from '../actions';
+
+@connect(mapStateToProps, mapDispatchToProps)
+export default class EventsComponent extends React.Component {
   static propTypes = {
     events: React.PropTypes.array.isRequired,
     locale: React.PropTypes.string.isRequired
@@ -30,11 +33,3 @@ function mapStateToProps(state) {
     locale: state.i18n.locale
   };
 }
-
-function mapDispatchToProps() {
-  return {
-    actions: {}
-  };
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(EventsComponent);

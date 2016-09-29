@@ -2,9 +2,10 @@ import { connect } from 'react-redux';
 import React from 'react';
 import { I18n } from 'react-redux-i18n';
 
-import { hideNotificationAction } from '../actions';
+import mapDispatchToProps from '../actions';
 
-class NotificationsComponent extends React.Component {
+@connect(mapStateToProps, mapDispatchToProps)
+export default class NotificationsComponent extends React.Component {
   static propTypes = {
     actions: React.PropTypes.shape({
       hideNotification: React.PropTypes.func.isRequired
@@ -41,13 +42,3 @@ function mapStateToProps(state) {
     notifications: [...state.notifications]
   };
 }
-
-function mapDispatchToProps(dispatch) {
-  return {
-    actions: {
-      hideNotification: (notification) => dispatch(hideNotificationAction(notification.content, notification.time))
-    }
-  };
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(NotificationsComponent);

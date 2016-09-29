@@ -1,10 +1,12 @@
 import { connect } from 'react-redux';
 import React from 'react';
 
+import mapDispatchToProps from '../actions';
 import JournalEntryContent from './JournalEntryContent';
 import JournalEntryTime from './JournalEntryTime';
 
-class MoodComponent extends React.Component {
+@connect(mapStateToProps, mapDispatchToProps)
+export default class MoodComponent extends React.Component {
   static propTypes = {
     mood: React.PropTypes.shape({
       content: React.PropTypes.string.isRequired,
@@ -34,11 +36,3 @@ function mapStateToProps(state, props) {
     mood: journal[id]
   };
 }
-
-function mapDispatchToProps() {
-  return {
-    actions: {}
-  };
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(MoodComponent);

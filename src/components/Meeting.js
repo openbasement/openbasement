@@ -1,10 +1,12 @@
 import { connect } from 'react-redux';
 import React from 'react';
 
+import mapDispatchToProps from '../actions';
 import JournalEntryContent from './JournalEntryContent';
 import JournalEntryTime from './JournalEntryTime';
 
-class MeetingComponent extends React.Component {
+@connect(mapStateToProps, mapDispatchToProps)
+export default class MeetingComponent extends React.Component {
   static propTypes = {
     meeting: React.PropTypes.shape({
       content: React.PropTypes.string.isRequired,
@@ -32,11 +34,3 @@ function mapStateToProps(state, props) {
     meeting: journal[id]
   };
 }
-
-function mapDispatchToProps() {
-  return {
-    actions: {}
-  };
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(MeetingComponent);

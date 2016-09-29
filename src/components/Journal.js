@@ -1,13 +1,15 @@
 import { connect } from 'react-redux';
 import React from 'react';
 
+import mapDispatchToProps from '../actions';
 import { MEETING, MOOD, NOTE } from '../model/const';
 import JournalInput from './JournalInput';
 import Meeting from './Meeting';
 import Mood from './Mood';
 import Note from './Note';
 
-class JournalComponent extends React.Component {
+@connect(mapStateToProps, mapDispatchToProps)
+export default class JournalComponent extends React.Component {
   static propTypes = {
     journal: React.PropTypes.array.isRequired
   }
@@ -46,11 +48,3 @@ function mapStateToProps(state) {
     journal: journal
   };
 }
-
-function mapDispatchToProps() {
-  return {
-    actions: {}
-  };
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(JournalComponent);

@@ -3,10 +3,11 @@ import Modal from 'react-modal';
 import React from 'react';
 import { I18n } from 'react-redux-i18n';
 
-import { openSettingsAction, closeSettingsAction } from '../actions';
+import mapDispatchToProps from '../actions';
 import SetLocale from './SetLocale';
 
-class SettingsComponent extends React.Component {
+@connect(mapStateToProps, mapDispatchToProps)
+export default class SettingsComponent extends React.Component {
   static propTypes = {
     actions: React.PropTypes.shape({
       closeSettings: React.PropTypes.func.isRequired,
@@ -43,14 +44,3 @@ function mapStateToProps(state) {
     locale: state.i18n.locale
   };
 }
-
-function mapDispatchToProps(dispatch) {
-  return {
-    actions: {
-      closeSettings: () => dispatch(closeSettingsAction()),
-      openSettings: () => dispatch(openSettingsAction())
-    }
-  };
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(SettingsComponent);

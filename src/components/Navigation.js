@@ -1,11 +1,13 @@
 import { connect } from 'react-redux';
 import React from 'react';
 
+import mapDispatchToProps from '../actions';
 import Profile from './Profile';
 import Friends from './Friends';
 import Settings from './Settings';
 
-class NavigationComponent extends React.Component {
+@connect(mapStateToProps, mapDispatchToProps)
+export default class NavigationComponent extends React.Component {
   render() {
     return (
       <nav id="navigation">
@@ -22,11 +24,3 @@ class NavigationComponent extends React.Component {
 function mapStateToProps() {
   return {};
 }
-
-function mapDispatchToProps() {
-  return {
-    actions: {}
-  };
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(NavigationComponent);
