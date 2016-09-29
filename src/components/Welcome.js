@@ -24,7 +24,6 @@ export default class WelcomeComponent extends React.Component {
   render() {
     const { wasWelcomeClosed } = this.props;
     const { closeWelcome } = this.props.actions;
-    console.error('wasWelcomeClosed', wasWelcomeClosed); // eslint-disable-line no-console
     return (
       <Modal
           className="modal"
