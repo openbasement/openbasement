@@ -6,8 +6,7 @@ import ReactDOM from 'react-dom';
 import ReactMarkdown from 'react-markdown';
 
 import mapDispatchToProps from '../actions';
-
-const mapStateToProps = () => {};
+import { mapStateToProps } from '../model/state';
 
 @connect(mapStateToProps, mapDispatchToProps)
 export default class JournalEntryContentComponent extends React.Component {

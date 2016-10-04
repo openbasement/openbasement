@@ -3,12 +3,15 @@ import React from 'react';
 import { I18n } from 'react-redux-i18n';
 
 import mapDispatchToProps from '../actions';
+import { mapStateToProps } from '../model/state';
 
 @connect(mapStateToProps, mapDispatchToProps)
 export default class InteractionsComponent extends React.Component {
   static propTypes = {
-    interactions: React.PropTypes.object.isRequired,
-    locale: React.PropTypes.string.isRequired
+    i18n: React.PropTypes.shape({
+      locale: React.PropTypes.string.isRequired
+    }),
+    interactions: React.PropTypes.object.isRequired
   }
 
   makeIntaraction(interaction) {
@@ -44,11 +47,4 @@ export default class InteractionsComponent extends React.Component {
       </section>
     );
   }
-}
-
-function mapStateToProps(state) {
-  return {
-    interactions: { ...state.interactions },
-    locale: state.i18n.locale
-  };
 }

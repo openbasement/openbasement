@@ -1,5 +1,6 @@
 export const initialState = {
   journal: [],
+  journalVersion: 0,
   events: [],
   interactions: {},
   notifications: [],
@@ -31,3 +32,5 @@ export const updateAnalysis = state => entries => {
     notifications: updateNotifications(state.notifications)(entries.notifications || initialState.notifications)
   };
 };
+
+export const mapStateToProps = state => state;

@@ -4,11 +4,7 @@ import React from 'react';
 import { I18n } from 'react-redux-i18n';
 
 import mapDispatchToProps from '../actions';
-
-const mapStateToProps = state => ({
-  isFriendsOpened: state.ui.isFriendsOpened,
-  locale: state.i18n.locale
-});
+import { mapStateToProps } from '../model/state';
 
 @connect(mapStateToProps, mapDispatchToProps)
 export default class FriendsComponent extends React.Component {
@@ -17,8 +13,10 @@ export default class FriendsComponent extends React.Component {
       closeFriends: React.PropTypes.func.isRequired,
       openFriends: React.PropTypes.func.isRequired
     }),
-    isFriendsOpened: React.PropTypes.bool,
-    locale: React.PropTypes.string.isRequired
+    i18n: React.PropTypes.shape({
+      locale: React.PropTypes.string.isRequired
+    }),
+    isFriendsOpened: React.PropTypes.bool
   }
 
   render() {

@@ -3,10 +3,7 @@ import React from 'react';
 import { I18n } from 'react-redux-i18n';
 
 import mapDispatchToProps from '../actions';
-
-const mapStateToProps = state => ({
-  locale: state.i18n.locale
-});
+import { mapStateToProps } from '../model/state';
 
 @connect(mapStateToProps, mapDispatchToProps)
 export default class SetLocaleComponent extends React.Component {
@@ -14,7 +11,9 @@ export default class SetLocaleComponent extends React.Component {
     actions: React.PropTypes.shape({
       setLocale: React.PropTypes.func.isRequired
     }),
-    locale: React.PropTypes.string.isRequired
+    i18n: React.PropTypes.shape({
+      locale: React.PropTypes.string.isRequired
+    })
   }
 
   render() {

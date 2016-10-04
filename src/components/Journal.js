@@ -3,6 +3,7 @@ import React from 'react';
 
 import mapDispatchToProps from '../actions';
 import { MEETING, MOOD, NOTE } from '../model/const';
+import { mapStateToProps } from '../model/state';
 import JournalInput from './JournalInput';
 import Meeting from './Meeting';
 import Mood from './Mood';
@@ -29,8 +30,8 @@ export default class JournalComponent extends React.Component {
 
   render() {
     // assert sorted descending
-    const journal = this.props.journal;
-    const entries = journal.map(this.journalEntryToArticle);
+    const { journal } = this.props;
+    const entries = journal.map(this.journalEntryToArticle).reverse();
     return (
       <div id="journal-wrapper">
         <JournalInput />
@@ -40,11 +41,4 @@ export default class JournalComponent extends React.Component {
       </div>
     );
   }
-}
-
-function mapStateToProps(state) {
-  const journal = [...state.journal].reverse();
-  return {
-    journal: journal
-  };
 }

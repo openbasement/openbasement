@@ -4,12 +4,8 @@ import React from 'react';
 import { I18n } from 'react-redux-i18n';
 
 import mapDispatchToProps from '../actions';
+import { mapStateToProps } from '../model/state';
 import SetLocale from './SetLocale';
-
-const mapStateToProps = state => ({
-  wasWelcomeClosed: state.ui.wasWelcomeClosed,
-  locale: state.i18n.locale
-});
 
 @connect(mapStateToProps, mapDispatchToProps)
 export default class WelcomeComponent extends React.Component {
@@ -17,12 +13,14 @@ export default class WelcomeComponent extends React.Component {
     actions: React.PropTypes.shape({
       closeWelcome: React.PropTypes.func.isRequired
     }),
-    locale: React.PropTypes.string.isRequired,
-    wasWelcomeClosed: React.PropTypes.bool
+    i18n: React.PropTypes.shape({
+      locale: React.PropTypes.string.isRequired
+    }),
+    ui: React.PropTypes.object.isRequired
   }
 
   render() {
-    const { wasWelcomeClosed } = this.props;
+    const { wasWelcomeClosed } = this.props.ui;
     const { closeWelcome } = this.props.actions;
     return (
       <Modal

@@ -4,6 +4,7 @@ import { i18nReducer } from 'react-redux-i18n';
 import addEntry from './addEntry';
 import changeUi from './changeUi';
 import hideNotification from './hideNotification';
+import journalUpdated from './journalUpdated';
 import updateAfterAnalyse from './updateAfterAnalyse';
 import devWrapper from './devWrapper';
 
@@ -11,6 +12,7 @@ const noop = empty => state => state || empty;
 
 const reducers = {
   journal: addEntry,
+  journalVersion: journalUpdated,
   events: noop([]),
   interactions: noop({}),
   notifications: hideNotification,

@@ -11,15 +11,14 @@ import Journal from './Journal';
 import Welcome from './Welcome';
 
 import mapDispatchToProps from '../actions';
-
-const mapStateToProps = state => ({
-  locale: state.i18n.locale
-});
+import { mapStateToProps } from '../model/state';
 
 @connect(mapStateToProps, mapDispatchToProps)
 export default class AppComponent extends React.Component {
   static propTypes = {
-    locale: React.PropTypes.string.isRequired
+    i18n: React.PropTypes.shape({
+      locale: React.PropTypes.string.isRequired
+    })
   };
 
   render() {

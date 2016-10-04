@@ -4,12 +4,8 @@ import React from 'react';
 import { I18n } from 'react-redux-i18n';
 
 import mapDispatchToProps from '../actions';
+import { mapStateToProps } from '../model/state';
 import SetLocale from './SetLocale';
-
-const mapStateToProps = state => ({
-  isSettingsOpened: state.ui.isSettingsOpened,
-  locale: state.i18n.locale
-});
 
 @connect(mapStateToProps, mapDispatchToProps)
 export default class SettingsComponent extends React.Component {
@@ -18,8 +14,10 @@ export default class SettingsComponent extends React.Component {
       closeSettings: React.PropTypes.func.isRequired,
       openSettings: React.PropTypes.func.isRequired
     }),
-    isSettingsOpened: React.PropTypes.bool,
-    locale: React.PropTypes.string.isRequired
+    i18n: React.PropTypes.shape({
+      locale: React.PropTypes.string.isRequired
+    }),
+    isSettingsOpened: React.PropTypes.bool
   }
 
   render() {

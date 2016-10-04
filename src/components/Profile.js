@@ -4,11 +4,7 @@ import React from 'react';
 import { I18n } from 'react-redux-i18n';
 
 import mapDispatchToProps from '../actions';
-
-const mapStateToProps = state => ({
-  isProfileOpened: state.ui.isProfileOpened,
-  locale: state.i18n.locale
-});
+import { mapStateToProps } from '../model/state';
 
 @connect(mapStateToProps, mapDispatchToProps)
 export default class ProfileComponent extends React.Component {
@@ -17,8 +13,10 @@ export default class ProfileComponent extends React.Component {
       closeProfile: React.PropTypes.func.isRequired,
       openProfile: React.PropTypes.func.isRequired
     }),
-    isProfileOpened: React.PropTypes.bool,
-    locale: React.PropTypes.string.isRequired
+    i18n: React.PropTypes.shape({
+      locale: React.PropTypes.string.isRequired
+    }),
+    isProfileOpened: React.PropTypes.bool
   }
 
   render() {
@@ -38,4 +36,3 @@ export default class ProfileComponent extends React.Component {
     );
   }
 }
-

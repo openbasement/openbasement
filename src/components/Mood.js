@@ -2,16 +2,9 @@ import { connect } from 'react-redux';
 import React from 'react';
 
 import mapDispatchToProps from '../actions';
+import { mapStateToProps } from '../model/state';
 import JournalEntryContent from './JournalEntryContent';
 import JournalEntryTime from './JournalEntryTime';
-
-function mapStateToProps(state, props) {
-  const journal = state.journal;
-  const id = props.mood.id;
-  return {
-    mood: journal[id]
-  };
-}
 
 @connect(mapStateToProps, mapDispatchToProps)
 export default class MoodComponent extends React.Component {

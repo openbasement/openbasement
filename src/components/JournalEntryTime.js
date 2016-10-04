@@ -3,6 +3,7 @@ import { emojify } from 'react-emojione';
 import React from 'react';
 
 import mapDispatchToProps from '../actions';
+import { mapStateToProps } from '../model/state';
 import emojioneOptions from '../images/emojioneOptions';
 
 const entryEmoijiOptions = {
@@ -14,8 +15,6 @@ const entryEmoijiOptions = {
     margin: '0'
   }
 };
-
-const mapStateToProps = () => {};
 
 @connect(mapStateToProps, mapDispatchToProps)
 export default class JournalEntryTimeComponent extends React.Component {

@@ -2,11 +2,10 @@ import { connect } from 'react-redux';
 import React from 'react';
 
 import mapDispatchToProps from '../actions';
+import { mapStateToProps } from '../model/state';
 import Notifications from './Notifications';
 import Events from './Events';
 import Interactions from './Interactions';
-
-const mapStateToProps = () => ({});
 
 @connect(mapStateToProps, mapDispatchToProps)
 export default class SideNotesComponent extends React.Component {

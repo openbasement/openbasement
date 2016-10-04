@@ -6,6 +6,7 @@ import ReactDOM from 'react-dom';
 import { I18n } from 'react-redux-i18n';
 
 import mapDispatchToProps from '../actions';
+import { mapStateToProps } from '../model/state';
 import emojioneOptions from '../images/emojioneOptions';
 
 const menuEmoijiOptions = {
@@ -19,11 +20,6 @@ const menuEmoijiOptions = {
   }
 };
 
-const mapStateToProps = state => ({
-  journalSize: state.journal.length,
-  locale: state.i18n.locale
-});
-
 @connect(mapStateToProps, mapDispatchToProps)
 export default class JournalInputComponent extends React.Component {
   static propTypes = {
@@ -32,8 +28,10 @@ export default class JournalInputComponent extends React.Component {
       addMood: React.PropTypes.func.isRequired,
       addNote: React.PropTypes.func.isRequired
     }),
-    journalSize: React.PropTypes.number.isRequired,
-    locale: React.PropTypes.string.isRequired
+    i18n: React.PropTypes.shape({
+      locale: React.PropTypes.string.isRequired
+    }),
+    journalVersion: React.PropTypes.number.isRequired
   }
 
   componentDidMount() {
@@ -41,7 +39,7 @@ export default class JournalInputComponent extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
-    if (prevProps.journalSize < this.props.journalSize && this._input) {
+    if (prevProps.journalVersion !== this.props.journalVersion && this._input) {
       this._input.style = '';
       this._input.value = '';
     }
