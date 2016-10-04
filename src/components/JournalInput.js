@@ -7,18 +7,7 @@ import { I18n } from 'react-redux-i18n';
 
 import mapDispatchToProps from '../actions';
 import { mapStateToProps } from '../model/state';
-import emojioneOptions from '../images/emojioneOptions';
-
-const menuEmoijiOptions = {
-  ...emojioneOptions,
-  styles: {
-    ...emojioneOptions.styles,
-    height: '12pt',
-    width: '12pt',
-    margin: '0',
-    marginBottom: '-3.5pt'
-  }
-};
+import menuEmojiOptions from '../images/menuEmojiOptions';
 
 @connect(mapStateToProps, mapDispatchToProps)
 export default class JournalInputComponent extends React.Component {
@@ -59,7 +48,7 @@ export default class JournalInputComponent extends React.Component {
     const addMoodIfContent = (mood) => dispatchIfContent(content => addMood(content, mood));
     const addNoteIfContent = dispatchIfContent(addNote);
 
-    const makeEmojiButton = (name) => emojify(name, menuEmoijiOptions);
+    const makeEmojiButton = (name) => emojify(name, menuEmojiOptions);
 
     const attatchInput = (function(ta) {
       this._input = ta;

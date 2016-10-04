@@ -4,17 +4,7 @@ import React from 'react';
 
 import mapDispatchToProps from '../actions';
 import { mapStateToProps } from '../model/state';
-import emojioneOptions from '../images/emojioneOptions';
-
-const entryEmoijiOptions = {
-  ...emojioneOptions,
-  styles: {
-    ...emojioneOptions.styles,
-    height: '8.5pt',
-    width: '8.5pt',
-    margin: '0'
-  }
-};
+import entryEmojiOptions from '../images/entryEmojiOptions';
 
 @connect(mapStateToProps, mapDispatchToProps)
 export default class JournalEntryTimeComponent extends React.Component {
@@ -32,7 +22,7 @@ export default class JournalEntryTimeComponent extends React.Component {
   render() {
     const { content, shouldEmojify, time } = this.props;
     return (
-      <div className="date">{shouldEmojify ? emojify(content, entryEmoijiOptions) : content} {this.showDate(time)}</div>
+      <div className="date">{shouldEmojify ? emojify(content, entryEmojiOptions) : content} {this.showDate(time)}</div>
     );
   }
 }
