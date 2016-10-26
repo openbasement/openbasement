@@ -49,7 +49,7 @@ module.exports = {
   profile: {
     menu: 'Profile',
     title: 'Your profile',
-    content: 'Nobody cares about about it.'
+    content: 'Nobody cares about it.'
   },
 
   friends: {
