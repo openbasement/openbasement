@@ -17,11 +17,13 @@ export default class SettingsComponent extends React.Component {
     i18n: React.PropTypes.shape({
       locale: React.PropTypes.string.isRequired
     }),
-    isSettingsOpened: React.PropTypes.bool
+    ui: React.PropTypes.shape({
+      isSettingsOpened: React.PropTypes.bool
+    })
   }
 
   render() {
-    const { isSettingsOpened } = this.props;
+    const { isSettingsOpened } = this.props.ui;
     const { closeSettings, openSettings } = this.props.actions;
     return (
       <li>

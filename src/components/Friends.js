@@ -16,11 +16,13 @@ export default class FriendsComponent extends React.Component {
     i18n: React.PropTypes.shape({
       locale: React.PropTypes.string.isRequired
     }),
-    isFriendsOpened: React.PropTypes.bool
+    ui: React.PropTypes.shape({
+      isFriendsOpened: React.PropTypes.bool
+    })
   }
 
   render() {
-    const { isFriendsOpened } = this.props;
+    const { isFriendsOpened } = this.props.ui;
     const { closeFriends, openFriends } = this.props.actions;
     return (
       <li>

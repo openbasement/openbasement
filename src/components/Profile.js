@@ -16,11 +16,13 @@ export default class ProfileComponent extends React.Component {
     i18n: React.PropTypes.shape({
       locale: React.PropTypes.string.isRequired
     }),
-    isProfileOpened: React.PropTypes.bool
+    ui: React.PropTypes.shape({
+      isProfileOpened: React.PropTypes.bool
+    })
   }
 
   render() {
-    const { isProfileOpened } = this.props;
+    const { isProfileOpened } = this.props.ui;
     const { closeProfile, openProfile } = this.props.actions;
     return (
       <li>
