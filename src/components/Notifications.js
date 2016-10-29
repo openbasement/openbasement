@@ -19,7 +19,7 @@ export default class NotificationsComponent extends React.Component {
 
   makeNotification(notification) {
     const time = new Date(notification.time).toLocaleString();
-    const hideNotification = () => this.props.actions.hideNotification(notification);
+    const hideNotification = () => this.props.actions.hideNotification(notification.content, notification.time);
     return (
       <div key={notification.content + notification.time}>
         <i className="fa fa-remove" onClick={hideNotification}/> {I18n.t(notification.content, { time: time })}
